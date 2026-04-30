@@ -1,1 +1,50 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inmobiliaria Rural | Proyectos Sostenibles</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Nombre de la Inmobiliaria</h1>
+            <ul>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <h2>Venta de campos y propiedades con enfoque en permacultura</h2>
+        <p>Tu refugio en las sierras diseñado para el futuro.</p>
+    </section>
+
+    <section id="proyectos">
+        <h2>Nuestros Proyectos</h2>
+        <div class="grid-proyectos">
+            <!-- Aquí irán las tarjetas de tus proyectos -->
+            <div class="proyecto">
+                <img src="img/proyecto1.jpg" alt="Campo en las sierras">
+                <h3>Nombre del Proyecto</h3>
+                <p>Descripción breve del enfoque sostenible.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Inmobiliaria Rural Sostenible</p>
+    </footer>
+</body>
+</html>
+
+body { font-family: sans-serif; margin: 0; color: #333; line-height: 1.6; }
+nav { display: flex; justify-content: space-between; padding: 20px; background: #2d4a22; color: white; }
+nav ul { list-style: none; display: flex; gap: 20px; }
+nav a { color: white; text-decoration: none; }
+#hero { background: #f4f4f4; padding: 100px 20px; text-align: center; }
+.grid-proyectos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 40px; }
+.proyecto img { width: 100%; border-radius: 8px; }
