@@ -707,105 +707,6 @@
 
         .servicio:hover p { color: rgba(255,255,255,0.8); }
 
-        /* ── PDF MODAL ── */
-        .pdf-modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            z-index: 999;
-            background: rgba(20,38,28,0.75);
-            backdrop-filter: blur(6px);
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-        }
-
-        .pdf-modal.open { display: flex; }
-
-        .pdf-modal-inner {
-            background: var(--blanco);
-            width: 100%;
-            max-width: 860px;
-            max-height: 92vh;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 24px 80px rgba(0,0,0,0.35);
-        }
-
-        .pdf-modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 1.4rem;
-            border-bottom: 1px solid var(--gris-claro);
-            background: var(--crema);
-            flex-shrink: 0;
-        }
-
-        .pdf-modal-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
-            color: var(--musgo);
-            font-style: italic;
-        }
-
-        .pdf-modal-close {
-            background: none;
-            border: 1px solid var(--gris-claro);
-            width: 34px;
-            height: 34px;
-            cursor: pointer;
-            font-size: 1.1rem;
-            color: var(--musgo);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-        }
-
-        .pdf-modal-close:hover { background: var(--musgo); color: #fff; border-color: var(--musgo); }
-
-        .pdf-modal-body {
-            flex: 1;
-            overflow: hidden;
-            min-height: 0;
-        }
-
-        .pdf-modal-body iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
-        }
-
-        .pdf-modal-footer {
-            padding: 0.8rem 1.4rem;
-            border-top: 1px solid var(--gris-claro);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-shrink: 0;
-            gap: 1rem;
-        }
-
-        .pdf-modal-footer a {
-            font-size: 0.65rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--musgo);
-            text-decoration: none;
-            opacity: 0.7;
-            transition: opacity 0.2s;
-        }
-
-        .pdf-modal-footer a:hover { opacity: 1; }
-
-        .pdf-modal-note {
-            font-size: 0.72rem;
-            color: var(--gris);
-        }
-
         /* ── FOOTER ── */
         footer {
             background: var(--musgo);
@@ -1104,7 +1005,7 @@
                         </div>
                         <div class="panel-acciones">
                             <a href="https://wa.me/59899488126?text=Me%20interesa%20Yaguané%20Raitý" target="_blank" class="btn-primary">Consultar por WhatsApp</a>
-                            <button onclick="abrirPDF('./Yaguan%C3%A9%20Rait%C3%BD.pdf','Yaguané Raitý')" class="btn-secondary">Ver Brochure</button>
+                            <a href="./Yaguan%C3%A9%20Rait%C3%BD.pdf" target="_blank" class="btn-secondary" style="display: flex; align-items: center; justify-content: center; text-decoration: none;">Ver Brochure</a>
                         </div>
                         <p class="panel-descripcion">
                             El Yaguané nos dio la bienvenida al campo mostrando autoconfianza y límites firmes, inspirando el nombre de este proyecto. Suelo profundo, fértil y rico en materia orgánica. Diversidad de relieves con cortinas naturales de viento que crean microclimas. Monte nativo centenario intacto y formaciones de piedra únicas, posiblemente antiguas guacas, que aportan identidad a este territorio. Las chacras se mantienen libres de alambrados internos para respetar los corredores biológicos de la fauna nativa.
@@ -1149,7 +1050,7 @@
                         </div>
                         <div class="panel-acciones">
                             <a href="https://wa.me/59899488126?text=Me%20interesa%20Aigua%20I%20Terra" target="_blank" class="btn-primary">Consultar por WhatsApp</a>
-                            <button onclick="abrirPDF('./Aigua%20Terra.pdf','Aigua I Terra')" class="btn-secondary">Ver Brochure</button>
+                            <a href="./Aigua%20Terra.pdf" target="_blank" class="btn-secondary" style="display: flex; align-items: center; justify-content: center; text-decoration: none;">Ver Brochure</a>
                         </div>
                         <p class="panel-descripcion">
                             Su nombre proviene del catalán — "Agua y Tierra" — que representa lo que inspiró el campo al conocerlo. Todas las chacras cuentan con agua de arroyo permanente, ya que aquí se encuentra una de las nacientes del Arroyo Rocha. Hábitat natural de especies nativas de flora y fauna en las quebradas de las Sierras. Acceso por camino central en parte alta del campo, reduciendo la erosión. Cortinas vegetales de árboles centenarios protegen los espacios de habitación. El proyecto es una oportunidad de conservación y regeneración junto a 12 vecinos que comparten los mismos valores y se mantienen sin alambrados internos.
@@ -1194,7 +1095,7 @@
                         </div>
                         <div class="panel-acciones">
                             <a href="https://wa.me/59899488126?text=Me%20interesa%20Ñangarekó" target="_blank" class="btn-primary">Consultar por WhatsApp</a>
-                            <button onclick="abrirPDF('./%C3%91angarek%C3%B3.pdf','Ñangarekó')" class="btn-secondary">Ver Brochure</button>
+                            <a href="./%C3%91angarek%C3%B3.pdf" target="_blank" class="btn-secondary" style="display: flex; align-items: center; justify-content: center; text-decoration: none;">Ver Brochure</a>
                         </div>
                         <p class="panel-descripcion">
                             Tierra de mucha energía en las Sierras de Rocha, inspirada en los principios de los pueblos originarios. Los pilares son la conservación y la permacultura: se respeta la riqueza del monte nativo y se aprovechan los eucaliptos implantados para uso como cortina de viento, leña y bioconstrucción. Vistas inigualables desde 200 metros de altura. En cada chacra se planifica el manejo del suelo individualmente, combinando privacidad con acceso a 50 hectáreas compartidas.
@@ -1239,7 +1140,7 @@
                         </div>
                         <div class="panel-acciones">
                             <a href="https://wa.me/59899488126?text=Me%20interesa%20Taguató%20Kuá" target="_blank" class="btn-primary">Consultar por WhatsApp</a>
-                            <button onclick="abrirPDF('./Taguat%C3%B3%20Ku%C3%A1.pdf','Taguató Kuá')" class="btn-secondary">Ver Brochure</button>
+                            <a href="./Taguat%C3%B3%20Ku%C3%A1.pdf" target="_blank" class="btn-secondary" style="display: flex; align-items: center; justify-content: center; text-decoration: none;">Ver Brochure</a>
                         </div>
                         <p class="panel-descripcion">
                             En el corazón de las Sierras de Rocha, sobre la Ruta Natural 109. Una tierra para llegar, quedarse y echar raíces. Algunas chacras protegidas por monte nativo que brinda abrigo en invierno y sombra en verano. Otras en zonas altas con vistas inigualables. Especies autóctonas como guazubirás, zorros, yaguatiricas y jotes conviven en el territorio. Cada vecino accede individualmente a su chacra manteniendo la independencia, mientras comparte 40 hectáreas en libertad.
@@ -1284,7 +1185,7 @@
                         </div>
                         <div class="panel-acciones">
                             <a href="https://wa.me/59899488126?text=Me%20interesa%20Urubú%20Kuá" target="_blank" class="btn-primary">Consultar por WhatsApp</a>
-                            <button onclick="abrirPDF('./Urub%C3%BA%20Ku%C3%A1.pdf','Urubú Kuá')" class="btn-secondary">Ver Brochure</button>
+                            <a href="./Urub%C3%BA%20Ku%C3%A1.pdf" target="_blank" class="btn-secondary" style="display: flex; align-items: center; justify-content: center; text-decoration: none;">Ver Brochure</a>
                         </div>
                         <p class="panel-descripcion">
                             Tierra alta y hermosa cerca de Melo, con la independencia necesaria para vivir en paz y contacto directo con la naturaleza. Los vientos y la orientación norte favorecen cultivos de origen mediterráneo, creando condiciones ideales para la producción ecológica y sustentable. El campo presenta relieves naturales que permiten la acumulación de agua. Los vecinos viven todo el año, creando un ambiente seguro y acompañado sin perder la calma y amplitud del paisaje rural.
@@ -1408,44 +1309,7 @@
         </div>
     </footer>
 
-    <div class="pdf-modal" id="pdf-modal">
-        <div class="pdf-modal-inner">
-            <div class="pdf-modal-header">
-                <span class="pdf-modal-title" id="pdf-modal-title">Brochure</span>
-                <button class="pdf-modal-close" onclick="cerrarPDF()" aria-label="Cerrar">✕</button>
-            </div>
-            <div class="pdf-modal-body">
-                <iframe id="pdf-iframe" src="" title="Brochure PDF"></iframe>
-            </div>
-            <div class="pdf-modal-footer">
-                <span class="pdf-modal-note">Podés navegar el documento con las flechas del visor.</span>
-                <a id="pdf-link" href="" target="_blank">Abrir en pantalla completa</a>
-            </div>
-        </div>
-    </div>
-
     <script>
-        // PDF Modal
-        function abrirPDF(archivo, nombre) {
-            document.getElementById('pdf-modal-title').textContent = nombre;
-            document.getElementById('pdf-iframe').src = archivo;
-            document.getElementById('pdf-link').href = archivo;
-            document.getElementById('pdf-modal').classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function cerrarPDF() {
-            document.getElementById('pdf-modal').classList.remove('open');
-            document.getElementById('pdf-iframe').src = '';
-            document.body.style.overflow = '';
-        }
-
-        document.getElementById('pdf-modal').addEventListener('click', function(e) {
-            if (e.target === this) cerrarPDF();
-        });
-
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarPDF(); });
-
         // Toggle proyectos
         function toggle(id) {
             const all = document.querySelectorAll('.proyecto-item');
