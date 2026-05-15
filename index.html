@@ -72,6 +72,11 @@
             list-style: none;
         }
 
+        .nav-links li {
+            display: flex;
+            align-items: center;
+        }
+
         .nav-links a {
             text-decoration: none;
             font-size: 0.7rem;
@@ -82,9 +87,11 @@
             transition: color 0.3s;
             padding-bottom: 3px;
             border-bottom: 1px solid transparent;
+            line-height: 1;
+            display: inline-block;
         }
 
-        .nav-links a:hover {
+        .nav-links a:not(.nav-cta):hover {
             color: var(--musgo);
             border-bottom-color: var(--musgo);
         }
@@ -502,6 +509,7 @@
             text-align: center;
             border: 1px solid var(--musgo);
             transition: all 0.3s;
+            cursor: pointer;
         }
 
         .btn-secondary:hover {
@@ -678,6 +686,25 @@
 
         .servicio:hover .servicio-icon { color: rgba(255,255,255,0.9); }
 
+        .servicio h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: #2a2a2a;
+            margin-bottom: 0.8rem;
+            transition: color 0.4s;
+        }
+
+        .servicio:hover h4 { color: #fff; }
+
+        .servicio p {
+            font-size: 0.83rem;
+            color: var(--gris);
+            line-height: 1.75;
+            transition: color 0.4s;
+        }
+
+        .servicio:hover p { color: rgba(255,255,255,0.8); }
+
         /* ── PDF MODAL ── */
         .pdf-modal {
             display: none;
@@ -777,25 +804,6 @@
             color: var(--gris);
         }
 
-        .servicio h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
-            color: #2a2a2a;
-            margin-bottom: 0.8rem;
-            transition: color 0.4s;
-        }
-
-        .servicio:hover h4 { color: #fff; }
-
-        .servicio p {
-            font-size: 0.83rem;
-            color: var(--gris);
-            line-height: 1.75;
-            transition: color 0.4s;
-        }
-
-        .servicio:hover p { color: rgba(255,255,255,0.8); }
-
         /* ── FOOTER ── */
         footer {
             background: var(--musgo);
@@ -883,8 +891,6 @@
         }
 
         /* ── RESPONSIVE ── */
-
-        /* Tablet grande / laptop pequeña: 900–1200px */
         @media (max-width: 1200px) {
             .nav-inner { padding: 0 1.5rem; }
             .nav-links { gap: 1.8rem; }
@@ -892,21 +898,16 @@
             .servicios-grid { grid-template-columns: repeat(4, 1fr); }
         }
 
-        /* Tablet: 768–900px */
         @media (max-width: 900px) {
-            /* Nav */
             .nav-links { display: none; }
             .hamburger { display: flex; }
             .mobile-menu.open { display: block; }
 
-            /* Secciones */
             section { padding: 5.5rem 1.5rem; }
 
-            /* Hero */
             .hero-title { font-size: clamp(2.8rem, 7vw, 5rem); }
             .hero-eyebrow { letter-spacing: 0.25em; }
 
-            /* Proyectos */
             .proyectos-header { margin-bottom: 2.5rem; }
             .proyectos-header p { font-size: 0.88rem; }
             .proyecto-trigger { gap: 1.2rem; padding: 1.4rem 1.5rem; }
@@ -914,11 +915,9 @@
             .panel-acciones { flex-direction: row; }
             .btn-primary, .btn-secondary { flex: 1; }
 
-            /* Quiénes somos */
             .qs-inner { grid-template-columns: 1fr; gap: 2.5rem; }
             .qs-card { padding: 2rem; }
 
-            /* Servicios */
             .servicios-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -929,23 +928,18 @@
             .servicio:nth-child(odd) { border-right: 1px solid var(--gris-claro); }
             .servicio:nth-last-child(-n+2) { border-bottom: none; }
 
-            /* Footer */
             .footer-contact { gap: 2rem; }
         }
 
-        /* Móvil grande: 480–768px */
         @media (max-width: 768px) {
-            /* Nav */
             .nav-inner { height: 68px; }
             .nav-logo img { height: 44px; }
 
-            /* Hero */
             .hero { min-height: 100svh; }
             .hero-title { font-size: clamp(2.4rem, 10vw, 3.8rem); line-height: 1.1; }
             .hero-sub { letter-spacing: 0.25em; margin-bottom: 2rem; }
             .hero-scroll { display: none; }
 
-            /* Proyectos */
             .proyecto-name { font-size: 1.3rem; }
             .proyecto-loc { font-size: 0.65rem; }
             .proyecto-arrow span:first-child { display: none; }
@@ -953,36 +947,28 @@
             .btn-primary, .btn-secondary { flex: none; width: 100%; }
             .panel-descripcion { font-size: 0.85rem; }
 
-            /* Quiénes somos */
             .qs-card { padding: 1.6rem; }
-            .qs-quote p { font-size: 1.1rem; }
+            .qs-quote p { font-size: 1.2rem; }
 
-            /* Servicios */
             .servicios-header p { font-size: 0.85rem; }
-            .servicio { padding: 2rem 1.5rem; }
+            .servicio { padding: 2.5rem 1.5rem; }
 
-            /* Footer */
             .footer-tagline { font-size: 1.2rem; }
             .footer-cta { padding: 1rem 2rem; font-size: 0.65rem; }
             .footer-contact { flex-direction: column; align-items: center; gap: 1.5rem; }
         }
 
-        /* Móvil: hasta 480px */
         @media (max-width: 480px) {
-            /* Nav */
             .nav-inner { padding: 0 1rem; height: 62px; }
             .nav-logo img { height: 38px; }
 
-            /* Secciones */
             section { padding: 4rem 1rem; }
 
-            /* Hero */
             .hero-title { font-size: clamp(2rem, 11vw, 3rem); }
             .hero-eyebrow { font-size: 0.58rem; letter-spacing: 0.2em; }
             .hero-sub { font-size: 0.62rem; letter-spacing: 0.2em; }
             .hero-btn { padding: 0.8rem 1.8rem; font-size: 0.62rem; }
 
-            /* Proyectos */
             .proyectos-header { margin-bottom: 2rem; }
             .proyectos-header p { font-size: 0.82rem; }
             .proyecto-trigger {
@@ -1000,7 +986,6 @@
             .panel-tags { gap: 0.4rem; }
             .tag { font-size: 0.55rem; padding: 0.25rem 0.55rem; }
 
-            /* Quiénes somos */
             .qs-text p { font-size: 0.88rem; }
             .qs-card { padding: 1.4rem; }
             .qs-card h3 { font-size: 1.15rem; }
@@ -1008,7 +993,6 @@
             .garantia p { font-size: 0.8rem; }
             .garantia-icon { width: 20px; height: 20px; font-size: 0.6rem; }
 
-            /* Servicios: 2x2 en móvil en vez de 1 columna */
             .servicios-grid { grid-template-columns: repeat(2, 1fr) !important; }
             .servicio { border-right: none !important; border-bottom: 1px solid var(--gris-claro); }
             .servicio:nth-child(odd) { border-right: 1px solid var(--gris-claro) !important; }
@@ -1018,14 +1002,12 @@
             .servicio-icon { width: 28px; height: 28px; margin-bottom: 0.8rem; }
             .servicios-header .section-title br { display: none; }
 
-            /* Footer */
             footer { padding: 4rem 1rem 2.5rem; }
             .footer-logo img { height: 50px; margin-bottom: 1.5rem; }
             .footer-tagline { font-size: 1.05rem; margin-bottom: 1.8rem; }
             .footer-cta { display: block; width: 100%; text-align: center; margin-bottom: 2.5rem; }
             .footer-copy { font-size: 0.6rem; }
 
-            /* Mobile menu */
             .mobile-menu { padding: 1rem 1.5rem; }
             .mobile-menu a { font-size: 0.7rem; padding: 0.9rem 0; }
         }
@@ -1033,7 +1015,6 @@
 </head>
 <body>
 
-    <!-- NAV -->
     <nav id="navbar">
         <div class="nav-inner">
             <div class="nav-logo">
@@ -1061,7 +1042,6 @@
         </div>
     </nav>
 
-    <!-- HERO -->
     <section class="hero">
         <div class="hero-bg" id="hero-bg"></div>
         <div class="hero-overlay"></div>
@@ -1076,7 +1056,6 @@
         </div>
     </section>
 
-    <!-- PROYECTOS -->
     <section id="proyectos">
         <div class="proyectos-header">
             <p class="section-label">Nuestros Proyectos</p>
@@ -1087,7 +1066,6 @@
 
         <div class="proyectos-grid">
 
-            <!-- YAGUANÉ RAITÝ -->
             <div class="proyecto-item" id="item-yaguane">
                 <button class="proyecto-trigger" onclick="toggle('item-yaguane')">
                     <img src="https://i.ibb.co/kgnKWtXx/Whats-App-Image-2026-03-19-at-22-41-20.jpg" class="proyecto-thumb" alt="Yaguané Raitý">
@@ -1124,7 +1102,7 @@
                         </div>
                         <div class="panel-acciones">
                             <a href="https://wa.me/59899488126?text=Me%20interesa%20Yaguané%20Raitý" target="_blank" class="btn-primary">Consultar por WhatsApp</a>
-                            <button onclick="abrirPDF('Yaguané Raitý.pdf','Yaguané Raitý')" class="btn-secondary">Ver Brochure</button>
+                            <button onclick="abrirPDF('definitivo 2.pdf','Yaguané Raitý')" class="btn-secondary">Ver Brochure</button>
                         </div>
                         <p class="panel-descripcion">
                             El Yaguané nos dio la bienvenida al campo mostrando autoconfianza y límites firmes, inspirando el nombre de este proyecto. Suelo profundo, fértil y rico en materia orgánica. Diversidad de relieves con cortinas naturales de viento que crean microclimas. Monte nativo centenario intacto y formaciones de piedra únicas, posiblemente antiguas guacas, que aportan identidad a este territorio. Las chacras se mantienen libres de alambrados internos para respetar los corredores biológicos de la fauna nativa.
@@ -1133,7 +1111,6 @@
                 </div>
             </div>
 
-            <!-- AIGUA I TERRA -->
             <div class="proyecto-item" id="item-aigua">
                 <button class="proyecto-trigger" onclick="toggle('item-aigua')">
                     <img src="https://i.ibb.co/p6ywz7Mj/Foto-1.png" class="proyecto-thumb" alt="Aigua I Terra">
@@ -1159,11 +1136,7 @@
                             </div>
                             <div class="dato-row">
                                 <span class="dato-label">Ubicación</span>
-                                <span class="dato-value">Ruta Natural 109. A 25 km de Rocha y 35 km de Aiguá.</span>
-                            </div>
-                            <div class="dato-row">
-                                <span class="dato-label">Agua</span>
-                                <span class="dato-value">Todas las chacras cuentan con agua de arroyo — naciente del Arroyo Rocha.</span>
+                                <span class="dato-value">Ruta Natural 109. A 25 km de la ciudad de Rocha y 35 km de Aiguá.</span>
                             </div>
                             <div class="panel-tags">
                                 <span class="tag">Agua permanente</span>
@@ -1177,13 +1150,12 @@
                             <button onclick="abrirPDF('AiguaITerra.pdf','Aigua I Terra')" class="btn-secondary">Ver Brochure</button>
                         </div>
                         <p class="panel-descripcion">
-                            Su nombre proviene del catalán — "Agua y Tierra" — que representa lo que inspiró el campo al conocerlo. Hábitat natural de especies nativas de flora y fauna en las quebradas de las Sierras. Acceso por camino central en parte alta del campo, reduciendo la erosión. Cortinas vegetales de árboles centenarios protegen los espacios de habitación. El proyecto es una oportunidad de conservación y regeneración junto a 12 vecinos que comparten los mismos valores.
+                            Su nombre proviene del catalán — "Agua y Tierra" — que representa lo que inspiró el campo al conocerlo. Todas las chacras cuentan con agua de arroyo permanente, ya que aquí se encuentra una de las nacientes del Arroyo Rocha. Hábitat natural de especies nativas de flora y fauna en las quebradas de las Sierras. Acceso por camino central en parte alta del campo, reduciendo la erosión. Cortinas vegetales de árboles centenarios protegen los espacios de habitación. El proyecto es una oportunidad de conservación y regeneración junto a 12 vecinos que comparten los mismos valores y se mantienen sin alambrados internos.
                         </p>
                     </div>
                 </div>
             </div>
 
-            <!-- ÑANGAREKÓ -->
             <div class="proyecto-item" id="item-nangareko">
                 <button class="proyecto-trigger" onclick="toggle('item-nangareko')">
                     <img src="https://i.ibb.co/TDnFBJgq/Foto-2.png" class="proyecto-thumb" alt="Ñangarekó">
@@ -1209,17 +1181,13 @@
                             </div>
                             <div class="dato-row">
                                 <span class="dato-label">Ubicación</span>
-                                <span class="dato-value">Ruta Natural 109. A 15 km de Rocha, a 200 m sobre el nivel del mar.</span>
-                            </div>
-                            <div class="dato-row">
-                                <span class="dato-label">Fauna autóctona</span>
-                                <span class="dato-value">Guazubirás, zorros, yaguatiricas y jotes — monitoreados con cámaras trampa.</span>
+                                <span class="dato-value">Ubicado en las Sierras de Rocha, a 15 km de la ciudad de Rocha.</span>
                             </div>
                             <div class="panel-tags">
                                 <span class="tag">50 ha comunes</span>
                                 <span class="tag">Monte nativo</span>
-                                <span class="tag">200 msnm</span>
-                                <span class="tag">Eucaliptos</span>
+                                <span class="tag">Sierras de Rocha</span>
+                                <span class="tag">Permacultura</span>
                             </div>
                         </div>
                         <div class="panel-acciones">
@@ -1233,7 +1201,6 @@
                 </div>
             </div>
 
-            <!-- TAGUATÓ KUÁ -->
             <div class="proyecto-item" id="item-taguato">
                 <button class="proyecto-trigger" onclick="toggle('item-taguato')">
                     <img src="https://i.ibb.co/TDr5LWsx/foto-7.png" class="proyecto-thumb" alt="Taguató Kuá">
@@ -1259,17 +1226,13 @@
                             </div>
                             <div class="dato-row">
                                 <span class="dato-label">Ubicación</span>
-                                <span class="dato-value">Ruta Natural 109. A solo 12 km de Rocha, muy cerca del Océano Atlántico.</span>
-                            </div>
-                            <div class="dato-row">
-                                <span class="dato-label">Características</span>
-                                <span class="dato-value">Algunas chacras atravesadas por arroyo. Monte nativo protector. Cada chacra con entrada individual.</span>
+                                <span class="dato-value">Ubicado sobre la Ruta Natural 109, en el corazón de las Sierras de Rocha. Muy cerca de la ciudad de Rocha y del Océano Atlántico.</span>
                             </div>
                             <div class="panel-tags">
                                 <span class="tag">40 ha comunes</span>
                                 <span class="tag">Arroyo propio</span>
-                                <span class="tag">12 km de Rocha</span>
-                                <span class="tag">Escritura pública</span>
+                                <span class="tag">Ruta 109</span>
+                                <span class="tag">Entrada individual</span>
                             </div>
                         </div>
                         <div class="panel-acciones">
@@ -1283,7 +1246,6 @@
                 </div>
             </div>
 
-            <!-- URUBÚ KUÁ -->
             <div class="proyecto-item" id="item-urubu">
                 <button class="proyecto-trigger" onclick="toggle('item-urubu')">
                     <img src="https://i.ibb.co/20vJh1xr/Foto-6.png" class="proyecto-thumb" alt="Urubú Kuá">
@@ -1309,17 +1271,13 @@
                             </div>
                             <div class="dato-row">
                                 <span class="dato-label">Ubicación</span>
-                                <span class="dato-value">Cerro Largo. A 10 minutos de la ciudad de Melo, en zona tranquila rodeada de chacras.</span>
-                            </div>
-                            <div class="dato-row">
-                                <span class="dato-label">Clima y suelo</span>
-                                <span class="dato-value">Orientación norte favorece cultivos mediterráneos. Relieves que acumulan agua naturalmente.</span>
+                                <span class="dato-value">Ubicado en Cerro Largo, en una zona de tierra alta muy próxima a la ciudad de Melo (a solo 10 minutos).</span>
                             </div>
                             <div class="panel-tags">
                                 <span class="tag">Tierra alta</span>
-                                <span class="tag">Producción ecológica</span>
-                                <span class="tag">Vecinos año redondo</span>
-                                <span class="tag">Cerro Largo</span>
+                                <span class="tag">Melo</span>
+                                <span class="tag">Orientación Norte</span>
+                                <span class="tag">Cultivos mediterráneos</span>
                             </div>
                         </div>
                         <div class="panel-acciones">
@@ -1336,7 +1294,6 @@
         </div>
     </section>
 
-    <!-- QUIÉNES SOMOS -->
     <section id="quienes-somos">
         <div class="qs-inner">
             <div class="qs-text">
@@ -1375,7 +1332,6 @@
         </div>
     </section>
 
-    <!-- SERVICIOS -->
     <section id="servicios">
         <div class="servicios-inner">
             <div class="servicios-header">
@@ -1389,7 +1345,6 @@
                     <div class="servicio-num">01</div>
                     <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10"/><path d="M12 6v6l4 2"/><circle cx="18" cy="6" r="3"/><path d="M16.5 4.5l3 3"/>
-                        <!-- seed/sprout icon -->
                         <path d="M7 20c0-4 2-7 5-9"/><path d="M12 11c0-4 3-7 7-7-1 4-4 7-7 7z"/>
                     </svg>
                     <h4>Soberanía Alimentaria</h4>
@@ -1423,7 +1378,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer id="contacto">
         <div class="footer-inner">
             <div class="footer-logo">
@@ -1448,11 +1402,10 @@
                     </a>
                 </div>
             </div>
-            <p class="footer-copy">© 2025 Las Sierras Inmobiliaria · Uruguay · Sierras de Rocha</p>
+            <p class="footer-copy">© 2026 Las Sierras Inmobiliaria · Uruguay · Sierras de Rocha</p>
         </div>
     </footer>
 
-    <!-- PDF MODAL -->
     <div class="pdf-modal" id="pdf-modal">
         <div class="pdf-modal-inner">
             <div class="pdf-modal-header">
@@ -1464,7 +1417,7 @@
             </div>
             <div class="pdf-modal-footer">
                 <span class="pdf-modal-note">Podés navegar el documento con las flechas del visor.</span>
-                <a id="pdf-download" href="" download>Descargar PDF ↓</a>
+                <a id="pdf-link" href="" target="_blank">Abrir en pantalla completa</a>
             </div>
         </div>
     </div>
@@ -1474,8 +1427,7 @@
         function abrirPDF(archivo, nombre) {
             document.getElementById('pdf-modal-title').textContent = nombre;
             document.getElementById('pdf-iframe').src = archivo;
-            document.getElementById('pdf-download').href = archivo;
-            document.getElementById('pdf-download').download = nombre + '.pdf';
+            document.getElementById('pdf-link').href = archivo;
             document.getElementById('pdf-modal').classList.add('open');
             document.body.style.overflow = 'hidden';
         }
@@ -1486,12 +1438,10 @@
             document.body.style.overflow = '';
         }
 
-        // Cerrar modal al hacer click en el fondo
         document.getElementById('pdf-modal').addEventListener('click', function(e) {
             if (e.target === this) cerrarPDF();
         });
 
-        // Cerrar con Escape
         document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarPDF(); });
 
         // Toggle proyectos
