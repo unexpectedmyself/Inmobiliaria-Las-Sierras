@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Las Sierras Inmobiliaria | Propiedades con Propósito</title>
-    <link rel="icon" type="image/png" href="https://i.ibb.co/VY87sBfr/Logo-Las-Sierras-Inmobiliaria-3x.png">
+    <link rel="icon" type="image/png" href="https://i.ibb.co/qLmvZSnH/Gemini-Generated-Image-q5sj5vq5sj5vq5sj.png">
     
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -235,36 +235,6 @@
             border-color: #fff;
         }
 
-        .hero-scroll {
-            position: absolute;
-            bottom: 2.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 3;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            color: rgba(255,255,255,0.6);
-            font-size: 0.6rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-        }
-
-        .scroll-line {
-            width: 1px;
-            height: 50px;
-            background: rgba(255,255,255,0.4);
-            animation: scrollAnim 2s infinite;
-        }
-
-        @keyframes scrollAnim {
-            0%   { transform: scaleY(0); transform-origin: top; }
-            50%  { transform: scaleY(1); transform-origin: top; }
-            51%  { transform: scaleY(1); transform-origin: bottom; }
-            100% { transform: scaleY(0); transform-origin: bottom; }
-        }
-
         /* ── SECTIONS ── */
         section { padding: 7rem 1.5rem; }
 
@@ -294,10 +264,6 @@
         }
 
         /* ── PROYECTOS ── */
-        #proyectos, #proyectos-concluidos { background: var(--blanco); }
-        
-        #proyectos-concluidos { padding-top: 2rem; }
-
         .proyectos-header {
             text-align: center;
             max-width: 580px;
@@ -950,130 +916,15 @@
         }
 
         /* ── RESPONSIVE ── */
-        @media (max-width: 1200px) {
-            .nav-inner { padding: 0 1.5rem; }
-            .nav-links { gap: 1.8rem; }
-            .qs-inner { gap: 3rem; }
-            .servicios-grid { grid-template-columns: repeat(4, 1fr); }
-        }
-
         @media (max-width: 900px) {
             .nav-links { display: none; }
             .hamburger { display: flex; }
             .mobile-menu.open { display: block; }
-
-            section { padding: 5.5rem 1.5rem; }
-
-            .hero-title { font-size: clamp(2.8rem, 7vw, 5rem); }
-            .hero-eyebrow { letter-spacing: 0.25em; }
-
-            .proyectos-header { margin-bottom: 2.5rem; }
-            .proyectos-header p { font-size: 0.88rem; }
-            .proyecto-trigger { gap: 1.2rem; padding: 1.4rem 1.5rem; }
-            .panel-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-            .panel-acciones { flex-direction: row; }
-            .btn-primary, .btn-secondary { flex: 1; }
-
-            .qs-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-            .qs-card { padding: 2rem; }
-
             .servicios-grid { grid-template-columns: repeat(2, 1fr); }
-            .servicio { border-right: none; border-bottom: 1px solid var(--gris-claro); }
-            .servicio:nth-child(odd) { border-right: 1px solid var(--gris-claro); }
-            .servicio:nth-last-child(-n+2) { border-bottom: none; }
-
-            .footer-contact { gap: 2rem; }
-        }
-
-        @media (max-width: 768px) {
-            .nav-inner { height: 68px; }
-            .nav-logo img { height: 44px; }
-
-            .hero { min-height: 100svh; }
-            .hero-title { font-size: clamp(2.4rem, 10vw, 3.8rem); line-height: 1.1; }
-            .hero-sub { letter-spacing: 0.25em; margin-bottom: 2rem; }
-            .hero-scroll { display: none; }
-
-            .proyecto-name { font-size: 1.3rem; }
-            .proyecto-loc { font-size: 0.65rem; }
-            .proyecto-arrow span:first-child { display: none; }
-            .panel-acciones { flex-direction: column; }
-            .btn-primary, .btn-secondary { flex: none; width: 100%; }
-            .panel-descripcion { font-size: 0.85rem; }
-
-            .qs-card { padding: 1.6rem; }
-            .qs-quote p { font-size: 1.2rem; }
-
-            .servicios-header p { font-size: 0.85rem; }
-            .servicio { padding: 2.5rem 1.5rem; }
-
-            .footer-tagline { font-size: 1.2rem; }
-            .footer-cta { padding: 1rem 2rem; font-size: 0.65rem; }
-            .footer-contact { flex-direction: column; align-items: center; gap: 1.5rem; }
-            
-            #testimonios { padding: 5rem 1.5rem; }
-            .testimonial-quote { font-size: 1.4rem; }
         }
 
         @media (max-width: 480px) {
-            .nav-inner { padding: 0 1rem; height: 62px; }
-            .nav-logo img { height: 38px; }
-
-            section { padding: 4rem 1rem; }
-
-            .hero-title { font-size: clamp(2rem, 11vw, 3rem); }
-            .hero-eyebrow { font-size: 0.58rem; letter-spacing: 0.2em; }
-            .hero-sub { font-size: 0.62rem; letter-spacing: 0.2em; }
-            .hero-btn { padding: 0.8rem 1.8rem; font-size: 0.62rem; }
-
-            .proyectos-header { margin-bottom: 2rem; }
-            .proyectos-header p { font-size: 0.82rem; }
-            .proyecto-trigger {
-                grid-template-columns: 56px 1fr 28px;
-                gap: 0.9rem;
-                padding: 1.1rem 1rem;
-            }
-            .proyecto-thumb { width: 56px; height: 56px; }
-            .proyecto-name { font-size: 1.15rem; }
-            .proyecto-loc { font-size: 0.6rem; }
-            .arrow-icon { width: 22px; height: 22px; }
-            .proyecto-arrow span:first-child { display: none; }
-            .proyecto-panel { padding: 1.5rem 1rem; }
-            .dato-precio { font-size: 1.7rem; }
-            .panel-tags { gap: 0.4rem; }
-            .tag { font-size: 0.55rem; padding: 0.25rem 0.55rem; }
-            
-            .galeria-grid { grid-template-columns: repeat(2, 1fr); }
-
-            .qs-text p { font-size: 0.88rem; }
-            .qs-card { padding: 1.4rem; }
-            .qs-card h3 { font-size: 1.15rem; }
-            .qs-card p { font-size: 0.83rem; }
-            .garantia p { font-size: 0.8rem; }
-            .garantia-icon { width: 20px; height: 20px; font-size: 0.6rem; }
-
             .servicios-grid { grid-template-columns: repeat(2, 1fr) !important; }
-            .servicio { border-right: none !important; border-bottom: 1px solid var(--gris-claro); }
-            .servicio:nth-child(odd) { border-right: 1px solid var(--gris-claro) !important; }
-            .servicio:nth-last-child(-n+2) { border-bottom: none; }
-            .servicio:last-child { border-bottom: none; }
-            .servicio { padding: 1.6rem 1rem; }
-            .servicio-icon { width: 28px; height: 28px; margin-bottom: 0.8rem; }
-            .servicios-header .section-title br { display: none; }
-
-            footer { padding: 4rem 1rem 2.5rem; }
-            .footer-logo img { height: 50px; margin-bottom: 1.5rem; }
-            .footer-tagline { font-size: 1.05rem; margin-bottom: 1.8rem; }
-            .footer-cta { display: block; width: 100%; text-align: center; margin-bottom: 2.5rem; }
-            .footer-copy { font-size: 0.6rem; }
-
-            .mobile-menu { padding: 1rem 1.5rem; }
-            .mobile-menu a { font-size: 0.7rem; padding: 0.9rem 0; }
-            
-            #testimonios { padding: 4rem 1rem; }
-            .testimonios-container { min-height: 280px; }
-            .testimonial-quote { font-size: 1.2rem; }
-            .slider-dots { margin-top: 1.5rem; }
         }
     </style>
 </head>
@@ -1082,11 +933,11 @@
     <nav id="navbar">
         <div class="nav-inner">
             <div class="nav-logo">
-                <img src="https://i.ibb.co/VY87sBfr/Logo-Las-Sierras-Inmobiliaria-3x.png" alt="Las Sierras Inmobiliaria">
+                <img src="https://i.ibb.co/qLmvZSnH/Gemini-Generated-Image-q5sj5vq5sj5vq5sj.png" alt="Las Sierras Inmobiliaria">
             </div>
             <ul class="nav-links">
-                <li><a href="#proyectos">Proyectos</a></li>
                 <li><a href="#quienes-somos">Quiénes Somos</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#testimonios">Testimonios</a></li>
                 <li>
@@ -1099,8 +950,8 @@
             </button>
         </div>
         <div class="mobile-menu" id="mobile-menu">
-            <a href="#proyectos">Proyectos</a>
             <a href="#quienes-somos">Quiénes Somos</a>
+            <a href="#proyectos">Proyectos</a>
             <a href="#servicios">Servicios</a>
             <a href="#testimonios">Testimonios</a>
             <a href="https://wa.me/59899488126?text=Hola!%20Me%20interesa%20obtener%20información%20sobre%20las%20chacras."
@@ -1116,260 +967,6 @@
             <h1 class="hero-title">Regresar<br>a la Tierra</h1>
             <p class="hero-sub">Vivir en sintonía es natural</p>
             <a href="#proyectos" class="hero-btn">Ver Proyectos</a>
-        </div>
-        <div class="hero-scroll">
-            <div class="scroll-line"></div>
-        </div>
-    </section>
-
-    <section id="proyectos">
-        <div class="proyectos-header">
-            <p class="section-label">Nuestros Proyectos</p>
-            <h2 class="section-title">Chacras con propósito</h2>
-            <div class="divider"></div>
-            <p>Cada proyecto nace de la observación profunda del territorio. Todos incluyen asesoramiento en permacultura, bioconstrucción y soberanía alimentaria.</p>
-        </div>
-
-        <div class="proyectos-grid">
-
-            <div class="proyecto-item" id="item-yaguane">
-                <button class="proyecto-trigger" onclick="toggle('item-yaguane')">
-                    <img src="https://i.ibb.co/JWkQBQcy/7b844b53-ad96-448d-995a-c9820e631d49.jpg" class="proyecto-thumb" alt="Yaguané Raitý">
-                    <div class="proyecto-info">
-                        <div class="proyecto-name">Yaguané Raitý</div>
-                        <div class="proyecto-loc">Sierras de Maldonado · USD 35.000</div>
-                    </div>
-                    <div class="proyecto-arrow">
-                        <span>Explorar</span>
-                        <span class="arrow-icon">↓</span>
-                    </div>
-                </button>
-                <div class="proyecto-panel">
-                    <div class="panel-grid">
-                        <div class="panel-datos">
-                            <div class="dato-row">
-                                <span class="dato-label">Precio</span>
-                                <span class="dato-precio">USD 35.000</span>
-                            </div>
-                            <div class="dato-row">
-                                <span class="dato-label">Unidades</span>
-                                <span class="dato-value">11 chacras de 3 hectáreas</span>
-                            </div>
-                            <div class="dato-row">
-                                <span class="dato-label">Ubicación</span>
-                                <span class="dato-value">Camino vecinal a 250m de Ruta 109. A 20 km de Rocha y 45 km de La Paloma.</span>
-                            </div>
-                            <div class="panel-tags">
-                                <span class="tag">Permacultura</span>
-                                <span class="tag">Monte nativo</span>
-                                <span class="tag">Sin alambrados</span>
-                                <span class="tag">Escritura pública</span>
-                            </div>
-                        </div>
-                        <div class="panel-acciones">
-                            <a href="https://wa.me/59899488126?text=Me%20interesa%20Yaguané%20Raitý" target="_blank" class="btn-primary">Consultar por WhatsApp</a>
-                            <a href="./Yaguan%C3%A9%20Rait%C3%BD.pdf" target="_blank" class="btn-secondary" style="display: flex; align-items: center; justify-content: center; text-decoration: none;">Ver Brochure</a>
-                        </div>
-                        <p class="panel-descripcion">
-                            El Yaguané nos dio la bienvenida al campo mostrando autoconfianza y límites firmes, inspirando el nombre de este proyecto. Suelo profundo, fértil y rico en materia orgánica. Diversidad de relieves con cortinas naturales de viento que crean microclimas. Monte nativo centenario intacto y formaciones de piedra únicas, posiblemente antiguas guacas, que aportan identidad a este territorio. Las chacras se mantienen libres de alambrados internos para respetar los corredores biológicos de la fauna nativa.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="proyecto-item" id="item-aigua">
-                <button class="proyecto-trigger" onclick="toggle('item-aigua')">
-                    <img src="https://i.ibb.co/p6ywz7Mj/Foto-1.png" class="proyecto-thumb" alt="Aigua I Terra">
-                    <div class="proyecto-info">
-                        <div class="proyecto-name">Aigua I Terra</div>
-                        <div class="proyecto-loc">Sierras de Maldonado · USD 30.000</div>
-                    </div>
-                    <div class="proyecto-arrow">
-                        <span>Explorar</span>
-                        <span class="arrow-icon">↓</span>
-                    </div>
-                </button>
-                <div class="proyecto-panel">
-                    <div class="panel-grid">
-                        <div class="panel-datos">
-                            <div class="dato-row">
-                                <span class="dato-label">Precio</span>
-                                <span class="dato-precio">USD 30.000</span>
-                            </div>
-                            <div class="dato-row">
-                                <span class="dato-label">Unidades</span>
-                                <span class="dato-value">13 chacras de 3 hectáreas</span>
-                            </div>
-                            <div class="dato-row">
-                                <span class="dato-label">Ubicación</span>
-                                <span class="dato-value">Ruta Natural 109. A 25 km de la ciudad de Rocha y 35 km de Aiguá.</span>
-                            </div>
-                            <div class="panel-tags">
-                                <span class="tag">Agua permanente</span>
-                                <span class="tag">Biodiversidad</span>
-                                <span class="tag">Permacultura</span>
-                                <span class="tag">Conservación</span>
-                            </div>
-                        </div>
-                        <div class="panel-acciones">
-                            <a href="https://wa.me/59899488126?text=Me%20interesa%20Aigua%20I%20Terra" target="_blank" class="btn-primary">Consultar por WhatsApp</a>
-                            <a href="./Aigua%20Terra.pdf" target="_blank" class="btn-secondary" style="display: flex; align-items: center; justify-content: center; text-decoration: none;">Ver Brochure</a>
-                        </div>
-                        <p class="panel-descripcion">
-                            Su nombre proviene del catalán — "Agua y Tierra" — que representa lo que inspiró el campo al conocerlo. Todas las chacras cuentan con agua de arroyo permanente, ya que aquí se encuentra una de las nacientes del Arroyo Rocha. Hábitat natural de especies nativas de flora y fauna en las quebradas de las Sierras. Acceso por camino central en parte alta del campo, reduciendo la erosión. Cortinas vegetales de árboles centenarios protegen los espacios de habitación. El proyecto es una oportunidad de conservación y regeneración junto a 12 vecinos que comparten los mismos valores y se mantienen sin alambrados internos.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="proyecto-item" id="item-nangareko">
-                <button class="proyecto-trigger" onclick="toggle('item-nangareko')">
-                    <img src="https://i.ibb.co/TDnFBJgq/Foto-2.png" class="proyecto-thumb" alt="Ñangarekó">
-                    <div class="proyecto-info">
-                        <div class="proyecto-name">Ñangarekó</div>
-                        <div class="proyecto-loc">Sierras de Rocha · USD 45.000</div>
-                    </div>
-                    <div class="proyecto-arrow">
-                        <span>Explorar</span>
-                        <span class="arrow-icon">↓</span>
-                    </div>
-                </button>
-                <div class="proyecto-panel">
-                    <div class="panel-grid">
-                        <div class="panel-datos">
-                            <div class="dato-row">
-                                <span class="dato-label">Precio</span>
-                                <span class="dato-precio">USD 45.000</span>
-                            </div>
-                            <div class="dato-row">
-                                <span class="dato-label">Unidades</span>
-                                <span class="dato-value">10 chacras de 5 ha individuales</span>
-                            </div>
-                            <div class="dato-row">
-                                <span class="dato-label">Ubicación</span>
-                                <span class="dato-value">Ubicado en las Sierras de Rocha, a 15 km de la ciudad de Rocha.</span>
-                            </div>
-                            <div class="panel-tags">
-                                <span class="tag">Monte nativo</span>
-                                <span class="tag">Sierras de Rocha</span>
-                                <span class="tag">Permacultura</span>
-                            </div>
-                        </div>
-                        <div class="panel-acciones">
-                            <a href="https://wa.me/59899488126?text=Me%20interesa%20Ñangarekó" target="_blank" class="btn-primary">Consultar por WhatsApp</a>
-                            <a href="./%C3%91angarek%C3%B3.pdf" target="_blank" class="btn-secondary" style="display: flex; align-items: center; justify-content: center; text-decoration: none;">Ver Brochure</a>
-                        </div>
-                        <p class="panel-descripcion">
-                            Tierra de mucha energía en las Sierras de Rocha, inspirada en los principios de los pueblos originarios. Los pilares son la conservación y la permacultura: se respeta la riqueza del monte nativo y se aprovechan los eucaliptos implantados para uso como cortina de viento, leña y bioconstrucción. Vistas inigualables desde 200 metros de altura. En cada chacra se planifica el manejo del suelo individualmente.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="proyecto-item" id="item-urubu">
-                <button class="proyecto-trigger" onclick="toggle('item-urubu')">
-                    <img src="https://i.ibb.co/20vJh1xr/Foto-6.png" class="proyecto-thumb" alt="Urubú Kuá">
-                    <div class="proyecto-info">
-                        <div class="proyecto-name">Urubú Kuá</div>
-                        <div class="proyecto-loc">Cerro Largo · USD 55.000</div>
-                    </div>
-                    <div class="proyecto-arrow">
-                        <span>Explorar</span>
-                        <span class="arrow-icon">↓</span>
-                    </div>
-                </button>
-                <div class="proyecto-panel">
-                    <div class="panel-grid">
-                        <div class="panel-datos">
-                            <div class="dato-row">
-                                <span class="dato-label">Precio</span>
-                                <span class="dato-precio">USD 55.000</span>
-                            </div>
-                            <div class="dato-row">
-                                <span class="dato-label">Unidades</span>
-                                <span class="dato-value">Chacras de 5 hectáreas</span>
-                            </div>
-                            <div class="dato-row">
-                                <span class="dato-label">Ubicación</span>
-                                <span class="dato-value">Ubicado en Cerro Largo, en una zona de tierra alta muy próxima a la ciudad de Melo (a solo 10 minutos).</span>
-                            </div>
-                            <div class="panel-tags">
-                                <span class="tag">Tierra alta</span>
-                                <span class="tag">Melo</span>
-                                <span class="tag">Orientación Norte</span>
-                                <span class="tag">Cultivos mediterráneos</span>
-                            </div>
-                        </div>
-                        <div class="panel-acciones">
-                            <a href="https://wa.me/59899488126?text=Me%20interesa%20Urubú%20Kuá" target="_blank" class="btn-primary">Consultar por WhatsApp</a>
-                            <a href="./Urub%C3%BA%20Ku%C3%A1.pdf" target="_blank" class="btn-secondary" style="display: flex; align-items: center; justify-content: center; text-decoration: none;">Ver Brochure</a>
-                        </div>
-                        <p class="panel-descripcion">
-                            Tierra alta y hermosa cerca de Melo, con la independencia necesaria para vivir en paz y contacto directo con la naturaleza. Los vientos y la orientación norte favorecen cultivos de origen mediterráneo, creando condiciones ideales para la producción ecológica y sustentable. El campo presenta relieves naturales que permiten la acumulación de agua. Los vecinos viven todo el año, creando un ambiente seguro y acompañado sin perder la calma y amplitud del paisaje rural.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="proyectos-concluidos">
-        <div class="proyectos-header">
-            <h2 class="section-title">Proyectos Concluidos</h2>
-            <div class="divider"></div>
-            <p>Territorios que ya han sido consolidados y habitados por propietarios que comparten nuestro propósito de vida y regeneración.</p>
-        </div>
-
-        <div class="proyectos-grid">
-            
-            <div class="proyecto-item" id="item-taguato">
-                <button class="proyecto-trigger" onclick="toggle('item-taguato')">
-                    <img src="https://i.ibb.co/TDr5LWsx/foto-7.png" class="proyecto-thumb" alt="Taguató Kuá">
-                    <div class="proyecto-info">
-                        <div class="proyecto-name">Taguató Kuá</div>
-                        <div class="proyecto-loc">Sierras de Rocha · Proyecto Concluido</div>
-                    </div>
-                    <div class="proyecto-arrow">
-                        <span>Ver Galería</span>
-                        <span class="arrow-icon">↓</span>
-                    </div>
-                </button>
-                <div class="proyecto-panel">
-                    <div class="panel-grid concluido">
-                        <div class="panel-datos">
-                            <div class="dato-row">
-                                <span class="dato-label">Unidades Vendidas</span>
-                                <span class="dato-value">8 chacras de 5 ha individuales</span>
-                            </div>
-                            <div class="dato-row">
-                                <span class="dato-label">Ubicación</span>
-                                <span class="dato-value">Ruta Natural 109, en el corazón de las Sierras de Rocha.</span>
-                            </div>
-                            <div class="panel-tags">
-                                <span class="tag">Arroyo propio</span>
-                                <span class="tag">Ruta 109</span>
-                                <span class="tag">100% Vendido</span>
-                            </div>
-                        </div>
-                        
-                        <p class="panel-descripcion">
-                            En el corazón de las Sierras de Rocha, sobre la Ruta Natural 109. Una tierra para llegar, quedarse y echar raíces. Algunas chacras protegidas por monte nativo que brinda abrigo en invierno y sombra en verano. Otras en zonas altas con vistas inigualables. Especies autóctonas como guazubirás, zorros, yaguatiricas y jotes conviven en el territorio. Cada vecino accede individualmente a su chacra manteniendo la independencia.
-                        </p>
-                        
-                        <div class="panel-galeria">
-                            <h4 class="panel-galeria-title">Galería del Territorio</h4>
-                            <div class="galeria-grid">
-                                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=400" alt="Paisaje Taguató 1" class="galeria-thumb" onclick="abrirImagen('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1200')">
-                                <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=400" alt="Paisaje Taguató 2" class="galeria-thumb" onclick="abrirImagen('https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1200')">
-                                <img src="https://images.unsplash.com/photo-1438786657495-640937046d18?q=80&w=400" alt="Paisaje Taguató 3" class="galeria-thumb" onclick="abrirImagen('https://images.unsplash.com/photo-1438786657495-640937046d18?q=80&w=1200')">
-                                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=400" alt="Paisaje Taguató 4" class="galeria-thumb" onclick="abrirImagen('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1200')">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
@@ -1407,30 +1004,131 @@
         </div>
     </section>
 
+    <section id="proyectos">
+        <div class="proyectos-header">
+            <p class="section-label">Nuestros Proyectos</p>
+            <h2 class="section-title">Chacras con propósito</h2>
+            <div class="divider"></div>
+            <p>Cada proyecto nace de la observación profunda del territorio. Todos incluyen asesoramiento en permacultura, bioconstrucción y soberanía alimentaria.</p>
+        </div>
+
+        <div class="proyectos-grid">
+            <div class="proyecto-item" id="item-yaguane">
+                <button class="proyecto-trigger" onclick="toggle('item-yaguane')">
+                    <img src="https://i.ibb.co/JWkQBQcy/7b844b53-ad96-448d-995a-c9820e631d49.jpg" class="proyecto-thumb" alt="Yaguané Raitý">
+                    <div class="proyecto-info">
+                        <div class="proyecto-name">Yaguané Raitý</div>
+                        <div class="proyecto-loc">Sierras de Maldonado · USD 35.000</div>
+                    </div>
+                    <div class="proyecto-arrow"><span class="arrow-icon">↓</span></div>
+                </button>
+                <div class="proyecto-panel">
+                    <div class="panel-grid">
+                        <div class="panel-datos">
+                            <div class="dato-row"><span class="dato-label">Precio</span><span class="dato-precio">USD 35.000</span></div>
+                            <div class="dato-row"><span class="dato-label">Unidades</span><span class="dato-value">11 chacras de 3 hectáreas</span></div>
+                            <div class="panel-tags"><span class="tag">Permacultura</span><span class="tag">Monte nativo</span><span class="tag">Sin alambrados</span></div>
+                        </div>
+                        <div class="panel-acciones">
+                            <a href="https://wa.me/59899488126" target="_blank" class="btn-primary">Consultar por WhatsApp</a>
+                        </div>
+                        <p class="panel-descripcion">Ubicado a 20 km de Rocha. Suelo fértil con monte nativo centenario. Corredores biológicos respetados mediante la ausencia de alambrados internos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="proyecto-item" id="item-aigua">
+                <button class="proyecto-trigger" onclick="toggle('item-aigua')">
+                    <img src="https://i.ibb.co/p6ywz7Mj/Foto-1.png" class="proyecto-thumb" alt="Aigua I Terra">
+                    <div class="proyecto-info">
+                        <div class="proyecto-name">Aigua I Terra</div>
+                        <div class="proyecto-loc">Sierras de Maldonado · USD 30.000</div>
+                    </div>
+                    <div class="proyecto-arrow"><span class="arrow-icon">↓</span></div>
+                </button>
+                <div class="proyecto-panel">
+                    <div class="panel-grid">
+                        <div class="panel-datos">
+                            <div class="dato-row"><span class="dato-label">Precio</span><span class="dato-precio">USD 30.000</span></div>
+                            <div class="dato-row"><span class="dato-label">Unidades</span><span class="dato-value">13 chacras de 3 hectáreas</span></div>
+                        </div>
+                        <div class="panel-acciones">
+                            <a href="https://wa.me/59899488126" target="_blank" class="btn-primary">Consultar por WhatsApp</a>
+                        </div>
+                        <p class="panel-descripcion">Agua permanente de arroyo y biodiversidad única en quebradas de las Sierras. Compromiso activo de conservación junto a vecinos con valores compartidos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="proyecto-item" id="item-nangareko">
+                <button class="proyecto-trigger" onclick="toggle('item-nangareko')">
+                    <img src="https://i.ibb.co/TDnFBJgq/Foto-2.png" class="proyecto-thumb" alt="Ñangarekó">
+                    <div class="proyecto-info">
+                        <div class="proyecto-name">Ñangarekó</div>
+                        <div class="proyecto-loc">Sierras de Rocha · USD 45.000</div>
+                    </div>
+                    <div class="proyecto-arrow"><span class="arrow-icon">↓</span></div>
+                </button>
+                <div class="proyecto-panel">
+                    <div class="panel-grid">
+                        <div class="panel-datos">
+                            <div class="dato-row"><span class="dato-label">Precio</span><span class="dato-precio">USD 45.000</span></div>
+                            <div class="dato-row"><span class="dato-label">Unidades</span><span class="dato-value">10 chacras de 5 ha individuales</span></div>
+                        </div>
+                        <div class="panel-acciones">
+                            <a href="https://wa.me/59899488126" target="_blank" class="btn-primary">Consultar por WhatsApp</a>
+                        </div>
+                        <p class="panel-descripcion">Inspirada en principios de conservación y permacultura. Vistas inigualables a 200 metros de altura en las Sierras de Rocha.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="proyectos-concluidos">
+        <div class="proyectos-header">
+            <h2 class="section-title">Proyectos Concluidos</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="proyectos-grid">
+            <div class="proyecto-item" id="item-taguato">
+                <button class="proyecto-trigger" onclick="toggle('item-taguato')">
+                    <img src="https://i.ibb.co/TDr5LWsx/foto-7.png" class="proyecto-thumb" alt="Taguató Kuá">
+                    <div class="proyecto-info">
+                        <div class="proyecto-name">Taguató Kuá</div>
+                        <div class="proyecto-loc">Sierras de Rocha · 100% Vendido</div>
+                    </div>
+                    <div class="proyecto-arrow"><span class="arrow-icon">↓</span></div>
+                </button>
+                <div class="proyecto-panel">
+                    <div class="panel-grid concluido">
+                        <div class="panel-datos">
+                            <div class="dato-row"><span class="dato-label">Unidades Vendidas</span><span class="dato-value">8 chacras de 5 ha individuales</span></div>
+                        </div>
+                        <p class="panel-descripcion">Territorio consolidado en la Ruta Natural 109. Un proyecto donde la fauna nativa convive en armonía con los nuevos habitantes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="testimonios">
         <div class="section-label">Testimonios</div>
         <h2 class="section-title">Voces del Territorio</h2>
         <div class="divider" style="margin-left: auto; margin-right: auto;"></div>
-        
         <div class="testimonios-container">
             <div class="testimonial-slide">
-                <p class="testimonial-quote">"Comprar mi chacra fue el comienzo de una nueva vida. La transparencia del equipo y su amor por la tierra nos dio la seguridad que buscábamos."</p>
+                <p class="testimonial-quote">"Comprar mi chacra fue el comienzo de una nueva vida. La transparencia del equipo nos dio la seguridad que buscábamos."</p>
                 <p class="testimonial-author">— Familia Rodríguez, Maldonado</p>
             </div>
             <div class="testimonial-slide">
-                <p class="testimonial-quote">"El asesoramiento en permacultura fue clave. No solo compramos tierra, sino una forma responsable de habitarla y cuidarla."</p>
+                <p class="testimonial-quote">"El asesoramiento en permacultura fue clave. No solo compramos tierra, sino una forma responsable de habitarla."</p>
                 <p class="testimonial-author">— Juan P., Rocha</p>
             </div>
-            <div class="testimonial-slide">
-                <p class="testimonial-quote">"Buscábamos silencio y respeto por la naturaleza. Encontramos un territorio único y un equipo que realmente entiende lo que vende."</p>
-                <p class="testimonial-author">— Elena & Marcos, Montevideo</p>
-            </div>
         </div>
-        
         <div class="slider-dots">
             <span class="dot" onclick="currentTestimonial(1)"></span>
             <span class="dot" onclick="currentTestimonial(2)"></span>
-            <span class="dot" onclick="currentTestimonial(3)"></span>
         </div>
     </section>
 
@@ -1438,44 +1136,33 @@
         <div class="servicios-inner">
             <div class="servicios-header">
                 <p class="section-label">Asesoría y Acompañamiento</p>
-                <h2 class="section-title"><span class="section-title-fixed">Criterios de sustentabilidad</span> en cada paso</h2>
+                <h2 class="section-title">Criterios de sustentabilidad en cada paso</h2>
                 <div class="divider"></div>
-                <p>Cada proyecto incluye consultoría especializada para que tu nuevo camino comience con el pie derecho.</p>
             </div>
             <div class="servicios-grid">
                 <div class="servicio">
                     <div class="servicio-num">01</div>
-                    <svg class="servicio-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 22v-7"/>
-                        <path d="M12 15A10 10 0 0 0 2 5a10 10 0 0 0 10 10Z"/>
-                        <path d="M12 15a10 10 0 0 1 10-10 10 10 0 0 1-10 10Z"/>
-                    </svg>
+                    <svg class="servicio-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-7"/><path d="M12 15A10 10 0 0 0 2 5a10 10 0 0 0 10 10Z"/><path d="M12 15a10 10 0 0 1 10-10 10 10 0 0 1-10 10Z"/></svg>
                     <h4>Soberanía Alimentaria</h4>
-                    <p>Diseño de huerta orgánica, manejo del suelo y consultoría en sistema de compostaje familiar.</p>
+                    <p>Diseño de huerta orgánica y manejo inteligente del suelo.</p>
                 </div>
                 <div class="servicio">
                     <div class="servicio-num">02</div>
-                    <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
-                    </svg>
+                    <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                     <h4>Bioconstrucción</h4>
-                    <p>Sistemas constructivos de bajo impacto, materiales locales y eficiencia térmica para mayor independencia.</p>
+                    <p>Sistemas constructivos de bajo impacto y materiales locales.</p>
                 </div>
                 <div class="servicio">
                     <div class="servicio-num">03</div>
-                    <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
-                    </svg>
+                    <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
                     <h4>Gestión del Agua</h4>
-                    <p>Tratamiento ecológico de aguas residuales, reutilización de aguas grises y sistemas de riego eficiente.</p>
+                    <p>Tratamiento ecológico y sistemas de riego eficiente.</p>
                 </div>
                 <div class="servicio">
                     <div class="servicio-num">04</div>
-                    <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-                    </svg>
+                    <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg>
                     <h4>Energías Renovables</h4>
-                    <p>Autonomía energética en armonía con el entorno, optimizando los recursos naturales del territorio.</p>
+                    <p>Autonomía energética en sintonía con los recursos naturales.</p>
                 </div>
             </div>
         </div>
@@ -1484,129 +1171,47 @@
     <footer id="contacto">
         <div class="footer-inner">
             <div class="footer-logo">
-                <img src="https://i.ibb.co/VY87sBfr/Logo-Las-Sierras-Inmobiliaria-3x.png" alt="Las Sierras Inmobiliaria">
+                <img src="https://i.ibb.co/qLmvZSnH/Gemini-Generated-Image-q5sj5vq5sj5vq5sj.png" alt="Las Sierras Inmobiliaria">
             </div>
             <p class="footer-tagline">Propiedades con propósito en las Sierras</p>
-            <a href="https://wa.me/59899488126?text=Hola!%20Me%20interesa%20obtener%20información%20sobre%20las%20chacras."
-               target="_blank" class="footer-cta">Hablar con un asesor →</a>
-            <div class="footer-contact">
-                <div class="contact-item">
-                    <span class="contact-label">WhatsApp</span>
-                    <a href="https://wa.me/59899488126" class="contact-value">(+598) 99 488 126</a>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-label">Instagram</span>
-                    <a href="https://www.instagram.com/lassierrasinmobiliaria/" target="_blank" class="contact-value">@lassierrasinmobiliaria</a>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-label">Asesora</span>
-                    <a href="https://www.instagram.com/cuoretierra/" target="_blank">
-                        <img src="https://i.ibb.co/prGhgrKf/Logo-Blanco.png" alt="Cuoretierra" style="height:32px; opacity:0.85; transition:opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.85">
-                    </a>
-                </div>
-            </div>
-            <p class="footer-copy">© 2026 Las Sierras Inmobiliaria · Uruguay · Sierras de Rocha</p>
+            <a href="https://wa.me/59899488126" target="_blank" class="footer-cta">Hablar con un asesor →</a>
+            <p class="footer-copy">© 2026 Las Sierras Inmobiliaria · Uruguay</p>
         </div>
     </footer>
 
-    <div id="lightbox" class="lightbox">
-        <button class="lightbox-close" onclick="cerrarImagen()" aria-label="Cerrar">✕</button>
-        <img id="lightbox-img" class="lightbox-img" src="" alt="Vista ampliada">
-    </div>
-
     <script>
-        // Toggle proyectos
         function toggle(id) {
             const all = document.querySelectorAll('.proyecto-item');
             all.forEach(item => {
                 if (item.id === id) {
                     item.classList.toggle('open');
-                    if (item.classList.contains('open')) {
-                        setTimeout(() => item.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
-                    }
                 } else {
                     item.classList.remove('open');
                 }
             });
         }
 
-        // Hamburger
         const ham = document.getElementById('hamburger');
         const mob = document.getElementById('mobile-menu');
-
         ham.addEventListener('click', () => {
             mob.classList.toggle('open');
             ham.classList.toggle('active');
         });
 
-        mob.querySelectorAll('a').forEach(a => {
-            a.addEventListener('click', () => {
-                mob.classList.remove('open');
-                ham.classList.remove('active');
-            });
-        });
-
-        // Parallax hero suave
-        const heroBg = document.getElementById('hero-bg');
-        window.addEventListener('scroll', () => {
-            const y = window.scrollY;
-            if (heroBg && y < window.innerHeight) {
-                heroBg.style.transform = `scale(1.04) translateY(${y * 0.18}px)`;
-            }
-        }, { passive: true });
-
-        // Lightbox Galería
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-
-        function abrirImagen(src) {
-            lightboxImg.src = src;
-            lightbox.classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function cerrarImagen() {
-            lightbox.classList.remove('open');
-            setTimeout(() => lightboxImg.src = '', 300);
-            document.body.style.overflow = '';
-        }
-
-        lightbox.addEventListener('click', function(e) {
-            if (e.target !== lightboxImg) cerrarImagen();
-        });
-
-        document.addEventListener('keydown', e => { 
-            if (e.key === 'Escape' && lightbox.classList.contains('open')) cerrarImagen(); 
-        });
-
-        // Testimonios Slider
         let testimonialIndex = 1;
         showTestimonials(testimonialIndex);
-
-        function currentTestimonial(n) {
-            showTestimonials(testimonialIndex = n);
-        }
-
+        function currentTestimonial(n) { showTestimonials(testimonialIndex = n); }
         function showTestimonials(n) {
             let slides = document.getElementsByClassName("testimonial-slide");
             let dots = document.getElementsByClassName("dot");
             if (n > slides.length) {testimonialIndex = 1}
             if (n < 1) {testimonialIndex = slides.length}
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            for (let i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
+            for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+            for (let i = 0; i < dots.length; i++) { dots[i].className = dots[i].className.replace(" active", ""); }
             slides[testimonialIndex-1].style.display = "block";
             dots[testimonialIndex-1].className += " active";
         }
-        
-        // Auto slide cada 8 segundos
-        setInterval(() => {
-            testimonialIndex++;
-            showTestimonials(testimonialIndex);
-        }, 8000);
+        setInterval(() => { testimonialIndex++; showTestimonials(testimonialIndex); }, 8000);
     </script>
 </body>
 </html>
