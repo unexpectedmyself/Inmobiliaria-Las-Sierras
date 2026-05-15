@@ -294,7 +294,9 @@
         }
 
         /* ── PROYECTOS ── */
-        #proyectos { background: var(--blanco); }
+        #proyectos, #proyectos-concluidos { background: var(--blanco); }
+        
+        #proyectos-concluidos { padding-top: 2rem; }
 
         .proyectos-header {
             text-align: center;
@@ -423,6 +425,10 @@
             gap: 2.5rem;
             max-width: 760px;
         }
+        
+        .panel-grid.concluido {
+            grid-template-columns: 1fr;
+        }
 
         .panel-datos { display: flex; flex-direction: column; gap: 1.2rem; }
 
@@ -527,6 +533,88 @@
             padding-top: 1.5rem;
             border-top: 1px solid var(--gris-claro);
             grid-column: 1 / -1;
+        }
+
+        /* ── GALERÍA Y LIGHTBOX ── */
+        .panel-galeria {
+            grid-column: 1 / -1;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px dashed var(--gris-claro);
+        }
+        
+        .panel-galeria-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--musgo);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 1rem;
+        }
+
+        .galeria-thumb {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: transform 0.3s, filter 0.3s;
+            border: 1px solid var(--gris-claro);
+        }
+
+        .galeria-thumb:hover {
+            transform: scale(1.03);
+            filter: brightness(1.1);
+            border-color: var(--musgo);
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(20, 38, 28, 0.95);
+            backdrop-filter: blur(5px);
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.open {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            border: 2px solid var(--musgo);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2.5rem;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.3s;
+        }
+
+        .lightbox-close:hover {
+            color: var(--tierra);
         }
 
         /* ── QUIÉNES SOMOS ── */
@@ -888,6 +976,8 @@
             .dato-precio { font-size: 1.7rem; }
             .panel-tags { gap: 0.4rem; }
             .tag { font-size: 0.55rem; padding: 0.25rem 0.55rem; }
+            
+            .galeria-grid { grid-template-columns: repeat(2, 1fr); }
 
             .qs-text p { font-size: 0.88rem; }
             .qs-card { padding: 1.4rem; }
@@ -1104,51 +1194,6 @@
                 </div>
             </div>
 
-            <div class="proyecto-item" id="item-taguato">
-                <button class="proyecto-trigger" onclick="toggle('item-taguato')">
-                    <img src="https://i.ibb.co/TDr5LWsx/foto-7.png" class="proyecto-thumb" alt="Taguató Kuá">
-                    <div class="proyecto-info">
-                        <div class="proyecto-name">Taguató Kuá</div>
-                        <div class="proyecto-loc">Sierras de Rocha · USD 39.000</div>
-                    </div>
-                    <div class="proyecto-arrow">
-                        <span>Explorar</span>
-                        <span class="arrow-icon">↓</span>
-                    </div>
-                </button>
-                <div class="proyecto-panel">
-                    <div class="panel-grid">
-                        <div class="panel-datos">
-                            <div class="dato-row">
-                                <span class="dato-label">Precio</span>
-                                <span class="dato-precio">USD 39.000</span>
-                            </div>
-                            <div class="dato-row">
-                                <span class="dato-label">Unidades</span>
-                                <span class="dato-value">8 chacras de 5 ha individuales + 40 ha compartidas</span>
-                            </div>
-                            <div class="dato-row">
-                                <span class="dato-label">Ubicación</span>
-                                <span class="dato-value">Ubicado sobre la Ruta Natural 109, en el corazón de las Sierras de Rocha. Muy cerca de la ciudad de Rocha y del Océano Atlántico.</span>
-                            </div>
-                            <div class="panel-tags">
-                                <span class="tag">40 ha comunes</span>
-                                <span class="tag">Arroyo propio</span>
-                                <span class="tag">Ruta 109</span>
-                                <span class="tag">Entrada individual</span>
-                            </div>
-                        </div>
-                        <div class="panel-acciones">
-                            <a href="https://wa.me/59899488126?text=Me%20interesa%20Taguató%20Kuá" target="_blank" class="btn-primary">Consultar por WhatsApp</a>
-                            <a href="./Taguat%C3%B3%20Ku%C3%A1.pdf" target="_blank" class="btn-secondary" style="display: flex; align-items: center; justify-content: center; text-decoration: none;">Ver Brochure</a>
-                        </div>
-                        <p class="panel-descripcion">
-                            En el corazón de las Sierras de Rocha, sobre la Ruta Natural 109. Una tierra para llegar, quedarse y echar raíces. Algunas chacras protegidas por monte nativo que brinda abrigo en invierno y sombra en verano. Otras en zonas altas con vistas inigualables. Especies autónctonas como guazubirás, zorros, yaguatiricas y jotes conviven en el territorio. Cada vecino accede individualmente a su chacra manteniendo la independencia, mientras comparte 40 hectáreas en libertad.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
             <div class="proyecto-item" id="item-urubu">
                 <button class="proyecto-trigger" onclick="toggle('item-urubu')">
                     <img src="https://i.ibb.co/20vJh1xr/Foto-6.png" class="proyecto-thumb" alt="Urubú Kuá">
@@ -1197,6 +1242,66 @@
         </div>
     </section>
 
+    <section id="proyectos-concluidos">
+        <div class="proyectos-header">
+            <h2 class="section-title">Proyectos Concluidos</h2>
+            <div class="divider"></div>
+            <p>Territorios que ya han sido consolidados y habitados por comunidades que comparten nuestro propósito de vida y regeneración.</p>
+        </div>
+
+        <div class="proyectos-grid">
+            
+            <div class="proyecto-item" id="item-taguato">
+                <button class="proyecto-trigger" onclick="toggle('item-taguato')">
+                    <img src="https://i.ibb.co/TDr5LWsx/foto-7.png" class="proyecto-thumb" alt="Taguató Kuá">
+                    <div class="proyecto-info">
+                        <div class="proyecto-name">Taguató Kuá</div>
+                        <div class="proyecto-loc">Sierras de Rocha · Proyecto Concluido</div>
+                    </div>
+                    <div class="proyecto-arrow">
+                        <span>Ver Galería</span>
+                        <span class="arrow-icon">↓</span>
+                    </div>
+                </button>
+                <div class="proyecto-panel">
+                    <div class="panel-grid concluido">
+                        <div class="panel-datos">
+                            <div class="dato-row">
+                                <span class="dato-label">Unidades Vendidas</span>
+                                <span class="dato-value">8 chacras de 5 ha individuales + 40 ha compartidas</span>
+                            </div>
+                            <div class="dato-row">
+                                <span class="dato-label">Ubicación</span>
+                                <span class="dato-value">Ruta Natural 109, en el corazón de las Sierras de Rocha.</span>
+                            </div>
+                            <div class="panel-tags">
+                                <span class="tag">40 ha comunes</span>
+                                <span class="tag">Arroyo propio</span>
+                                <span class="tag">Ruta 109</span>
+                                <span class="tag">100% Vendido</span>
+                            </div>
+                        </div>
+                        
+                        <p class="panel-descripcion">
+                            En el corazón de las Sierras de Rocha, sobre la Ruta Natural 109. Una tierra para llegar, quedarse y echar raíces. Algunas chacras protegidas por monte nativo que brinda abrigo en invierno y sombra en verano. Otras en zonas altas con vistas inigualables. Especies autóctonas como guazubirás, zorros, yaguatiricas y jotes conviven en el territorio. Cada vecino accede individualmente a su chacra manteniendo la independencia, mientras comparte 40 hectáreas en libertad.
+                        </p>
+                        
+                        <div class="panel-galeria">
+                            <h4 class="panel-galeria-title">Galería del Territorio</h4>
+                            <div class="galeria-grid">
+                                <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=400" alt="Paisaje Taguató 1" class="galeria-thumb" onclick="abrirImagen('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1200')">
+                                <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=400" alt="Paisaje Taguató 2" class="galeria-thumb" onclick="abrirImagen('https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1200')">
+                                <img src="https://images.unsplash.com/photo-1438786657495-640937046d18?q=80&w=400" alt="Paisaje Taguató 3" class="galeria-thumb" onclick="abrirImagen('https://images.unsplash.com/photo-1438786657495-640937046d18?q=80&w=1200')">
+                                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=400" alt="Paisaje Taguató 4" class="galeria-thumb" onclick="abrirImagen('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1200')">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <section id="quienes-somos">
         <div class="qs-inner">
             <div class="qs-text">
@@ -1222,7 +1327,7 @@
                         <div class="garantia-icon">✓</div>
                         <p><strong>Asesoramiento técnico incluido</strong> — permacultura, bioconstrucción y soberanía alimentaria desde el primer día.</p>
                     </div>
-                   <div class="garantia">
+                    <div class="garantia">
                         <div class="garantia-icon">✓</div>
                         <p><strong>Consciencia territorial</strong> — asumimos un compromiso activo con el medioambiente, seleccionando y gestionando cada propiedad bajo estrictos criterios de respeto y cuidado del ecosistema.</p>
                     </div>
@@ -1305,6 +1410,11 @@
         </div>
     </footer>
 
+    <div id="lightbox" class="lightbox">
+        <button class="lightbox-close" onclick="cerrarImagen()" aria-label="Cerrar">✕</button>
+        <img id="lightbox-img" class="lightbox-img" src="" alt="Vista ampliada">
+    </div>
+
     <script>
         // Toggle proyectos
         function toggle(id) {
@@ -1345,6 +1455,30 @@
                 heroBg.style.transform = `scale(1.04) translateY(${y * 0.18}px)`;
             }
         }, { passive: true });
+
+        // Lightbox Galería
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        function abrirImagen(src) {
+            lightboxImg.src = src;
+            lightbox.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function cerrarImagen() {
+            lightbox.classList.remove('open');
+            setTimeout(() => lightboxImg.src = '', 300);
+            document.body.style.overflow = '';
+        }
+
+        lightbox.addEventListener('click', function(e) {
+            if (e.target !== lightboxImg) cerrarImagen();
+        });
+
+        document.addEventListener('keydown', e => { 
+            if (e.key === 'Escape' && lightbox.classList.contains('open')) cerrarImagen(); 
+        });
     </script>
 </body>
 </html>
