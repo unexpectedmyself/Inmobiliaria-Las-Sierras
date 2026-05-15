@@ -790,7 +790,6 @@
         .servicios-header { text-align: center; margin-bottom: 4rem; }
         .servicios-header .divider { margin: 1.4rem auto; }
         
-        /* Ajuste separación texto móvil */
         .servicios-header .section-title-fixed {
             display: inline-block;
             margin-bottom: 5px;
@@ -948,6 +947,133 @@
             font-size: 0.68rem;
             opacity: 0.35;
             letter-spacing: 0.1em;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1200px) {
+            .nav-inner { padding: 0 1.5rem; }
+            .nav-links { gap: 1.8rem; }
+            .qs-inner { gap: 3rem; }
+            .servicios-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .mobile-menu.open { display: block; }
+
+            section { padding: 5.5rem 1.5rem; }
+
+            .hero-title { font-size: clamp(2.8rem, 7vw, 5rem); }
+            .hero-eyebrow { letter-spacing: 0.25em; }
+
+            .proyectos-header { margin-bottom: 2.5rem; }
+            .proyectos-header p { font-size: 0.88rem; }
+            .proyecto-trigger { gap: 1.2rem; padding: 1.4rem 1.5rem; }
+            .panel-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .panel-acciones { flex-direction: row; }
+            .btn-primary, .btn-secondary { flex: 1; }
+
+            .qs-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+            .qs-card { padding: 2rem; }
+
+            .servicios-grid { grid-template-columns: repeat(2, 1fr); }
+            .servicio { border-right: none; border-bottom: 1px solid var(--gris-claro); }
+            .servicio:nth-child(odd) { border-right: 1px solid var(--gris-claro); }
+            .servicio:nth-last-child(-n+2) { border-bottom: none; }
+
+            .footer-contact { gap: 2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-inner { height: 68px; }
+            .nav-logo img { height: 44px; }
+
+            .hero { min-height: 100svh; }
+            .hero-title { font-size: clamp(2.4rem, 10vw, 3.8rem); line-height: 1.1; }
+            .hero-sub { letter-spacing: 0.25em; margin-bottom: 2rem; }
+            .hero-scroll { display: none; }
+
+            .proyecto-name { font-size: 1.3rem; }
+            .proyecto-loc { font-size: 0.65rem; }
+            .proyecto-arrow span:first-child { display: none; }
+            .panel-acciones { flex-direction: column; }
+            .btn-primary, .btn-secondary { flex: none; width: 100%; }
+            .panel-descripcion { font-size: 0.85rem; }
+
+            .qs-card { padding: 1.6rem; }
+            .qs-quote p { font-size: 1.2rem; }
+
+            .servicios-header p { font-size: 0.85rem; }
+            .servicio { padding: 2.5rem 1.5rem; }
+
+            .footer-tagline { font-size: 1.2rem; }
+            .footer-cta { padding: 1rem 2rem; font-size: 0.65rem; }
+            .footer-contact { flex-direction: column; align-items: center; gap: 1.5rem; }
+            
+            #testimonios { padding: 5rem 1.5rem; }
+            .testimonial-quote { font-size: 1.4rem; }
+        }
+
+        @media (max-width: 480px) {
+            .nav-inner { padding: 0 1rem; height: 62px; }
+            .nav-logo img { height: 38px; }
+
+            section { padding: 4rem 1rem; }
+
+            .hero-title { font-size: clamp(2rem, 11vw, 3rem); }
+            .hero-eyebrow { font-size: 0.58rem; letter-spacing: 0.2em; }
+            .hero-sub { font-size: 0.62rem; letter-spacing: 0.2em; }
+            .hero-btn { padding: 0.8rem 1.8rem; font-size: 0.62rem; }
+
+            .proyectos-header { margin-bottom: 2rem; }
+            .proyectos-header p { font-size: 0.82rem; }
+            .proyecto-trigger {
+                grid-template-columns: 56px 1fr 28px;
+                gap: 0.9rem;
+                padding: 1.1rem 1rem;
+            }
+            .proyecto-thumb { width: 56px; height: 56px; }
+            .proyecto-name { font-size: 1.15rem; }
+            .proyecto-loc { font-size: 0.6rem; }
+            .arrow-icon { width: 22px; height: 22px; }
+            .proyecto-arrow span:first-child { display: none; }
+            .proyecto-panel { padding: 1.5rem 1rem; }
+            .dato-precio { font-size: 1.7rem; }
+            .panel-tags { gap: 0.4rem; }
+            .tag { font-size: 0.55rem; padding: 0.25rem 0.55rem; }
+            
+            .galeria-grid { grid-template-columns: repeat(2, 1fr); }
+
+            .qs-text p { font-size: 0.88rem; }
+            .qs-card { padding: 1.4rem; }
+            .qs-card h3 { font-size: 1.15rem; }
+            .qs-card p { font-size: 0.83rem; }
+            .garantia p { font-size: 0.8rem; }
+            .garantia-icon { width: 20px; height: 20px; font-size: 0.6rem; }
+
+            .servicios-grid { grid-template-columns: repeat(2, 1fr) !important; }
+            .servicio { border-right: none !important; border-bottom: 1px solid var(--gris-claro); }
+            .servicio:nth-child(odd) { border-right: 1px solid var(--gris-claro) !important; }
+            .servicio:nth-last-child(-n+2) { border-bottom: none; }
+            .servicio:last-child { border-bottom: none; }
+            .servicio { padding: 1.6rem 1rem; }
+            .servicio-icon { width: 28px; height: 28px; margin-bottom: 0.8rem; }
+            .servicios-header .section-title br { display: none; }
+
+            footer { padding: 4rem 1rem 2.5rem; }
+            .footer-logo img { height: 50px; margin-bottom: 1.5rem; }
+            .footer-tagline { font-size: 1.05rem; margin-bottom: 1.8rem; }
+            .footer-cta { display: block; width: 100%; text-align: center; margin-bottom: 2.5rem; }
+            .footer-copy { font-size: 0.6rem; }
+
+            .mobile-menu { padding: 1rem 1.5rem; }
+            .mobile-menu a { font-size: 0.7rem; padding: 0.9rem 0; }
+            
+            #testimonios { padding: 4rem 1rem; }
+            .testimonios-container { min-height: 280px; }
+            .testimonial-quote { font-size: 1.2rem; }
+            .slider-dots { margin-top: 1.5rem; }
         }
     </style>
 </head>
@@ -1319,9 +1445,10 @@
             <div class="servicios-grid">
                 <div class="servicio">
                     <div class="servicio-num">01</div>
-                    <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10"/><path d="M12 6v6l4 2"/><circle cx="18" cy="6" r="3"/><path d="M16.5 4.5l3 3"/>
-                        <path d="M7 20c0-4 2-7 5-9"/><path d="M12 11c0-4 3-7 7-7-1 4-4 7-7 7z"/>
+                    <svg class="servicio-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22v-7"/>
+                        <path d="M12 15A10 10 0 0 0 2 5a10 10 0 0 0 10 10Z"/>
+                        <path d="M12 15a10 10 0 0 1 10-10 10 10 0 0 1-10 10Z"/>
                     </svg>
                     <h4>Soberanía Alimentaria</h4>
                     <p>Diseño de huerta orgánica, manejo del suelo y consultoría en sistema de compostaje familiar.</p>
