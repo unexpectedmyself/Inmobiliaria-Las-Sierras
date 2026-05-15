@@ -52,9 +52,18 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-left: 4px solid var(--musgo);
         }
 
-        .nav-logo img { height: 52px; }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+        }
+        .nav-logo img {
+            height: 62px;
+        }
+        @media (max-width: 900px) { .nav-logo img { height: 52px; } }
+        @media (max-width: 480px) { .nav-logo img { height: 44px; } }
 
         .nav-links {
             display: flex;
@@ -556,9 +565,16 @@
         }
 
         .qs-card h3 {
-            font-size: 1.3rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.9rem;
+            font-weight: 600;
+            font-style: italic;
             color: var(--musgo);
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
+            line-height: 1.15;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--musgo);
+            display: inline-block;
         }
 
         .qs-card p {
@@ -652,9 +668,113 @@
         .servicio:hover .servicio-num { color: rgba(255,255,255,0.55); }
 
         .servicio-icon {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
+            width: 36px;
+            height: 36px;
+            margin-bottom: 1.2rem;
             display: block;
+            color: var(--musgo);
+            transition: color 0.4s;
+        }
+
+        .servicio:hover .servicio-icon { color: rgba(255,255,255,0.9); }
+
+        /* ── PDF MODAL ── */
+        .pdf-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            background: rgba(20,38,28,0.75);
+            backdrop-filter: blur(6px);
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .pdf-modal.open { display: flex; }
+
+        .pdf-modal-inner {
+            background: var(--blanco);
+            width: 100%;
+            max-width: 860px;
+            max-height: 92vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+        }
+
+        .pdf-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.4rem;
+            border-bottom: 1px solid var(--gris-claro);
+            background: var(--crema);
+            flex-shrink: 0;
+        }
+
+        .pdf-modal-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            color: var(--musgo);
+            font-style: italic;
+        }
+
+        .pdf-modal-close {
+            background: none;
+            border: 1px solid var(--gris-claro);
+            width: 34px;
+            height: 34px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            color: var(--musgo);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .pdf-modal-close:hover { background: var(--musgo); color: #fff; border-color: var(--musgo); }
+
+        .pdf-modal-body {
+            flex: 1;
+            overflow: hidden;
+            min-height: 0;
+        }
+
+        .pdf-modal-body iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        .pdf-modal-footer {
+            padding: 0.8rem 1.4rem;
+            border-top: 1px solid var(--gris-claro);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+            gap: 1rem;
+        }
+
+        .pdf-modal-footer a {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--musgo);
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .pdf-modal-footer a:hover { opacity: 1; }
+
+        .pdf-modal-note {
+            font-size: 0.72rem;
+            color: var(--gris);
         }
 
         .servicio h4 {
@@ -888,11 +1008,14 @@
             .garantia p { font-size: 0.8rem; }
             .garantia-icon { width: 20px; height: 20px; font-size: 0.6rem; }
 
-            /* Servicios */
-            .servicios-grid { grid-template-columns: 1fr; }
+            /* Servicios: 2x2 en móvil en vez de 1 columna */
+            .servicios-grid { grid-template-columns: repeat(2, 1fr) !important; }
             .servicio { border-right: none !important; border-bottom: 1px solid var(--gris-claro); }
+            .servicio:nth-child(odd) { border-right: 1px solid var(--gris-claro) !important; }
+            .servicio:nth-last-child(-n+2) { border-bottom: none; }
             .servicio:last-child { border-bottom: none; }
-            .servicio { padding: 1.8rem 1.2rem; }
+            .servicio { padding: 1.6rem 1rem; }
+            .servicio-icon { width: 28px; height: 28px; margin-bottom: 0.8rem; }
             .servicios-header .section-title br { display: none; }
 
             /* Footer */
@@ -1001,7 +1124,7 @@
                         </div>
                         <div class="panel-acciones">
                             <a href="https://wa.me/59899488126?text=Me%20interesa%20Yaguané%20Raitý" target="_blank" class="btn-primary">Consultar por WhatsApp</a>
-                            <a href="Yaguané Raitý.pdf" download class="btn-secondary">Descargar Brochure</a>
+                            <button onclick="abrirPDF('Yaguané Raitý.pdf','Yaguané Raitý')" class="btn-secondary">Ver Brochure</button>
                         </div>
                         <p class="panel-descripcion">
                             El Yaguané nos dio la bienvenida al campo mostrando autoconfianza y límites firmes, inspirando el nombre de este proyecto. Suelo profundo, fértil y rico en materia orgánica. Diversidad de relieves con cortinas naturales de viento que crean microclimas. Monte nativo centenario intacto y formaciones de piedra únicas, posiblemente antiguas guacas, que aportan identidad a este territorio. Las chacras se mantienen libres de alambrados internos para respetar los corredores biológicos de la fauna nativa.
@@ -1016,7 +1139,7 @@
                     <img src="https://i.ibb.co/p6ywz7Mj/Foto-1.png" class="proyecto-thumb" alt="Aigua I Terra">
                     <div class="proyecto-info">
                         <div class="proyecto-name">Aigua I Terra</div>
-                        <div class="proyecto-loc">Sierras de Rocha · USD 30.000</div>
+                        <div class="proyecto-loc">Sierras de Maldonado · USD 30.000</div>
                     </div>
                     <div class="proyecto-arrow">
                         <span>Explorar</span>
@@ -1051,7 +1174,7 @@
                         </div>
                         <div class="panel-acciones">
                             <a href="https://wa.me/59899488126?text=Me%20interesa%20Aigua%20I%20Terra" target="_blank" class="btn-primary">Consultar por WhatsApp</a>
-                            <a href="AiguaITerra.pdf" download class="btn-secondary">Descargar Brochure</a>
+                            <button onclick="abrirPDF('AiguaITerra.pdf','Aigua I Terra')" class="btn-secondary">Ver Brochure</button>
                         </div>
                         <p class="panel-descripcion">
                             Su nombre proviene del catalán — "Agua y Tierra" — que representa lo que inspiró el campo al conocerlo. Hábitat natural de especies nativas de flora y fauna en las quebradas de las Sierras. Acceso por camino central en parte alta del campo, reduciendo la erosión. Cortinas vegetales de árboles centenarios protegen los espacios de habitación. El proyecto es una oportunidad de conservación y regeneración junto a 12 vecinos que comparten los mismos valores.
@@ -1101,7 +1224,7 @@
                         </div>
                         <div class="panel-acciones">
                             <a href="https://wa.me/59899488126?text=Me%20interesa%20Ñangarekó" target="_blank" class="btn-primary">Consultar por WhatsApp</a>
-                            <a href="ÑANGAREKÓ.pdf" download class="btn-secondary">Descargar Brochure</a>
+                            <button onclick="abrirPDF('ÑANGAREKÓ.pdf','Ñangarekó')" class="btn-secondary">Ver Brochure</button>
                         </div>
                         <p class="panel-descripcion">
                             Tierra de mucha energía en las Sierras de Rocha, inspirada en los principios de los pueblos originarios. Los pilares son la conservación y la permacultura: se respeta la riqueza del monte nativo y se aprovechan los eucaliptos implantados para uso como cortina de viento, leña y bioconstrucción. Vistas inigualables desde 200 metros de altura. En cada chacra se planifica el manejo del suelo individualmente, combinando privacidad con acceso a 50 hectáreas compartidas.
@@ -1151,7 +1274,7 @@
                         </div>
                         <div class="panel-acciones">
                             <a href="https://wa.me/59899488126?text=Me%20interesa%20Taguató%20Kuá" target="_blank" class="btn-primary">Consultar por WhatsApp</a>
-                            <a href="Taguató Kuá.pdf" download class="btn-secondary">Descargar Brochure</a>
+                            <button onclick="abrirPDF('Taguató Kuá.pdf','Taguató Kuá')" class="btn-secondary">Ver Brochure</button>
                         </div>
                         <p class="panel-descripcion">
                             En el corazón de las Sierras de Rocha, sobre la Ruta Natural 109. Una tierra para llegar, quedarse y echar raíces. Algunas chacras protegidas por monte nativo que brinda abrigo en invierno y sombra en verano. Otras en zonas altas con vistas inigualables. Especies autóctonas como guazubirás, zorros, yaguatiricas y jotes conviven en el territorio. Cada vecino accede individualmente a su chacra manteniendo la independencia, mientras comparte 40 hectáreas en libertad.
@@ -1201,7 +1324,7 @@
                         </div>
                         <div class="panel-acciones">
                             <a href="https://wa.me/59899488126?text=Me%20interesa%20Urubú%20Kuá" target="_blank" class="btn-primary">Consultar por WhatsApp</a>
-                            <a href="Urubú Kuá.pdf" download class="btn-secondary">Descargar Brochure</a>
+                            <button onclick="abrirPDF('Urubú Kuá.pdf','Urubú Kuá')" class="btn-secondary">Ver Brochure</button>
                         </div>
                         <p class="panel-descripcion">
                             Tierra alta y hermosa cerca de Melo, con la independencia necesaria para vivir en paz y contacto directo con la naturaleza. Los vientos y la orientación norte favorecen cultivos de origen mediterráneo, creando condiciones ideales para la producción ecológica y sustentable. El campo presenta relieves naturales que permiten la acumulación de agua. Los vecinos viven todo el año, creando un ambiente seguro y acompañado sin perder la calma y amplitud del paisaje rural.
@@ -1228,7 +1351,7 @@
                 </div>
             </div>
             <div class="qs-card">
-                <h3>Por qué confiar en nosotros</h3>
+                <h3>¿Por qué confiar en nosotros?</h3>
                 <p>Con trayectoria consolidada en la venta de campos en las Sierras de Rocha y Maldonado, garantizamos una gestión transparente y segura.</p>
                 <div class="qs-garantias">
                     <div class="garantia">
@@ -1264,27 +1387,37 @@
             <div class="servicios-grid">
                 <div class="servicio">
                     <div class="servicio-num">01</div>
-                    <span class="servicio-icon">🌱</span>
+                    <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10"/><path d="M12 6v6l4 2"/><circle cx="18" cy="6" r="3"/><path d="M16.5 4.5l3 3"/>
+                        <!-- seed/sprout icon -->
+                        <path d="M7 20c0-4 2-7 5-9"/><path d="M12 11c0-4 3-7 7-7-1 4-4 7-7 7z"/>
+                    </svg>
                     <h4>Soberanía Alimentaria</h4>
-                    <p>Asesoramiento en el diseño de tu huerta orgánica aprovechando la riqueza del suelo serrano. Acompañamiento en el desarrollo de huerta familiar de escala, con consultoría en sistema de compostaje.</p>
+                    <p>Diseño de huerta orgánica, manejo del suelo serrano y consultoría en sistema de compostaje familiar.</p>
                 </div>
                 <div class="servicio">
                     <div class="servicio-num">02</div>
-                    <span class="servicio-icon">🏡</span>
+                    <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
                     <h4>Bioconstrucción</h4>
-                    <p>Guía técnica para elegir sistemas constructivos de bajo impacto. Priorizamos materiales locales, eficiencia térmica y técnicas que reducen la huella de carbono, ayudándote a ser más independiente.</p>
+                    <p>Sistemas constructivos de bajo impacto, materiales locales y eficiencia térmica para mayor independencia.</p>
                 </div>
                 <div class="servicio">
                     <div class="servicio-num">03</div>
-                    <span class="servicio-icon">💧</span>
+                    <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                    </svg>
                     <h4>Gestión del Agua</h4>
-                    <p>Consultoría para el tratamiento ecológico de aguas residuales (grises y negras) y sistemas de riego eficiente. Reutilización de aguas grises para riego y saneamiento ecológico de aguas negras.</p>
+                    <p>Tratamiento ecológico de aguas residuales, reutilización de aguas grises y sistemas de riego eficiente.</p>
                 </div>
                 <div class="servicio">
                     <div class="servicio-num">04</div>
-                    <span class="servicio-icon">☀️</span>
+                    <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
                     <h4>Energías Renovables</h4>
-                    <p>Orientación para la autonomía energética en armonía con el entorno, optimizando el uso de los recursos naturales disponibles en el territorio.</p>
+                    <p>Autonomía energética en armonía con el entorno, optimizando los recursos naturales del territorio.</p>
                 </div>
             </div>
         </div>
@@ -1319,14 +1452,54 @@
         </div>
     </footer>
 
+    <!-- PDF MODAL -->
+    <div class="pdf-modal" id="pdf-modal">
+        <div class="pdf-modal-inner">
+            <div class="pdf-modal-header">
+                <span class="pdf-modal-title" id="pdf-modal-title">Brochure</span>
+                <button class="pdf-modal-close" onclick="cerrarPDF()" aria-label="Cerrar">✕</button>
+            </div>
+            <div class="pdf-modal-body">
+                <iframe id="pdf-iframe" src="" title="Brochure PDF"></iframe>
+            </div>
+            <div class="pdf-modal-footer">
+                <span class="pdf-modal-note">Podés navegar el documento con las flechas del visor.</span>
+                <a id="pdf-download" href="" download>Descargar PDF ↓</a>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // PDF Modal
+        function abrirPDF(archivo, nombre) {
+            document.getElementById('pdf-modal-title').textContent = nombre;
+            document.getElementById('pdf-iframe').src = archivo;
+            document.getElementById('pdf-download').href = archivo;
+            document.getElementById('pdf-download').download = nombre + '.pdf';
+            document.getElementById('pdf-modal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function cerrarPDF() {
+            document.getElementById('pdf-modal').classList.remove('open');
+            document.getElementById('pdf-iframe').src = '';
+            document.body.style.overflow = '';
+        }
+
+        // Cerrar modal al hacer click en el fondo
+        document.getElementById('pdf-modal').addEventListener('click', function(e) {
+            if (e.target === this) cerrarPDF();
+        });
+
+        // Cerrar con Escape
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarPDF(); });
+
         // Toggle proyectos
         function toggle(id) {
             const all = document.querySelectorAll('.proyecto-item');
             all.forEach(item => {
                 if (item.id === id) {
                     item.classList.toggle('open');
-                    // Scroll suave al panel si se abre
                     if (item.classList.contains('open')) {
                         setTimeout(() => item.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
                     }
@@ -1342,11 +1515,9 @@
 
         ham.addEventListener('click', () => {
             mob.classList.toggle('open');
-            // Animar líneas del hamburger
             ham.classList.toggle('active');
         });
 
-        // Cerrar menú al hacer click en cualquier link
         mob.querySelectorAll('a').forEach(a => {
             a.addEventListener('click', () => {
                 mob.classList.remove('open');
