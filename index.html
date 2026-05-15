@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Las Sierras Inmobiliaria | Propiedades con Propósito</title>
     <link rel="icon" type="image/png" href="https://i.ibb.co/VY87sBfr/Logo-Las-Sierras-Inmobiliaria-3x.png">
+    
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -250,767 +251,150 @@
             text-transform: uppercase;
         }
 
-        .scroll-line {
-            width: 1px;
-            height: 50px;
-            background: rgba(255,255,255,0.4);
-            animation: scrollAnim 2s infinite;
+        /* ── SECCIONES GENERALES ── */
+        .section-padding { padding: 8rem 2rem; }
+        @media (max-width: 768px) { .section-padding { padding: 5rem 1rem; } }
+
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        /* ── PROYECTOS ── */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+        @media (max-width: 900px) { .projects-grid { grid-template-columns: 1fr; gap: 3rem; } }
+
+        .project-card {
+            background: var(--blanco);
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid var(--gris-claro);
+            padding-bottom: 2rem;
         }
 
-        @keyframes scrollAnim {
-            0%   { transform: scaleY(0); transform-origin: top; }
-            50%  { transform: scaleY(1); transform-origin: top; }
-            51%  { transform: scaleY(1); transform-origin: bottom; }
-            100% { transform: scaleY(0); transform-origin: bottom; }
+        .project-img-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 66.67%;
+            overflow: hidden;
+            background: var(--crema);
         }
 
-        /* ── SECTIONS ── */
-        section { padding: 7rem 1.5rem; }
+        .project-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
 
-        .section-label {
-            font-size: 0.62rem;
-            font-weight: 600;
-            letter-spacing: 0.3em;
+        .project-card:hover .project-img { transform: scale(1.03); }
+
+        .project-info { padding: 2rem 0 0 0; }
+
+        .project-meta {
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: var(--musgo);
-            margin-bottom: 0.8rem;
+            color: var(--tierra);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
         }
 
-        .section-title {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 300;
-            font-style: italic;
+        .project-title {
+            font-size: 2.2rem;
+            font-weight: 400;
             color: var(--musgo);
+            margin-bottom: 1rem;
             line-height: 1.2;
         }
 
-        .divider {
-            width: 48px;
-            height: 1px;
-            background: var(--musgo);
-            opacity: 0.35;
-            margin: 1.4rem 0;
-        }
-
-        /* ── PROYECTOS ── */
-        #proyectos { background: var(--blanco); }
-
-        .proyectos-header {
-            text-align: center;
-            max-width: 580px;
-            margin: 0 auto 4rem;
-        }
-
-        .proyectos-header .divider { margin: 1.4rem auto; }
-
-        .proyectos-header p {
-            font-size: 0.95rem;
-            color: var(--gris);
-            line-height: 1.8;
-        }
-
-        .proyectos-grid {
-            max-width: 880px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 1px;
-            background: var(--gris-claro);
-            border: 1px solid var(--gris-claro);
-        }
-
-        .proyecto-item { background: var(--blanco); }
-
-        .proyecto-trigger {
-            width: 100%;
-            display: grid;
-            grid-template-columns: 80px 1fr auto;
-            align-items: center;
-            gap: 1.8rem;
-            padding: 1.8rem 2rem;
-            cursor: pointer;
-            border: none;
-            background: transparent;
-            text-align: left;
-            transition: background 0.25s;
-        }
-
-        .proyecto-trigger:hover { background: var(--crema); }
-
-        .proyecto-thumb {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--gris-claro);
-            transition: border-color 0.3s;
-            flex-shrink: 0;
-        }
-
-        .proyecto-trigger:hover .proyecto-thumb,
-        .proyecto-item.open .proyecto-thumb {
-            border-color: var(--musgo);
-        }
-
-        .proyecto-info { flex: 1; }
-
-        .proyecto-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: var(--musgo);
-            margin-bottom: 0.15rem;
-        }
-
-        .proyecto-loc {
-            font-size: 0.72rem;
-            color: var(--gris);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-
-        .proyecto-arrow {
-            font-size: 0.65rem;
-            color: var(--gris);
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            white-space: nowrap;
-        }
-
-        .arrow-icon {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 1px solid var(--musgo);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-            font-size: 0.7rem;
-            color: var(--musgo);
-            flex-shrink: 0;
-        }
-
-        .proyecto-item.open .arrow-icon {
-            background: var(--musgo);
-            color: #fff;
-            transform: rotate(180deg);
-        }
-
-        .proyecto-panel {
-            display: none;
-            background: var(--crema);
-            border-top: 1px solid var(--gris-claro);
-            padding: 2.5rem 2rem;
-            animation: panelOpen 0.35s ease;
-        }
-
-        @keyframes panelOpen {
-            from { opacity: 0; transform: translateY(-8px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        .proyecto-item.open .proyecto-panel { display: block; }
-
-        .panel-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
-            max-width: 760px;
-        }
-
-        .panel-datos { display: flex; flex-direction: column; gap: 1.2rem; }
-
-        .dato-row {
-            display: flex;
-            flex-direction: column;
-            gap: 0.2rem;
-        }
-
-        .dato-label {
-            font-size: 0.62rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--gris);
-        }
-
-        .dato-value {
-            font-size: 0.92rem;
-            color: #2a2a2a;
+        .project-description {
+            font-size: 0.9rem;
             line-height: 1.6;
+            color: var(--gris);
+            margin-bottom: 1.8rem;
         }
 
-        .dato-precio {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            color: var(--musgo);
-            font-weight: 400;
-        }
-
-        .panel-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 0.5rem;
-        }
-
-        .tag {
-            font-size: 0.6rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            padding: 0.3rem 0.7rem;
-            border: 1px solid var(--musgo);
-            color: var(--musgo);
-            border-radius: 2px;
-        }
-
-        .panel-acciones {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .btn-primary {
-            display: inline-block;
+        .project-btn {
+            align-self: flex-start;
             text-decoration: none;
-            background: var(--musgo);
-            color: #fff;
             font-size: 0.68rem;
             font-weight: 600;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
-            padding: 1rem 1.8rem;
-            text-align: center;
-            transition: all 0.3s;
-            border: 1px solid var(--musgo);
-        }
-
-        .btn-primary:hover {
-            background: transparent;
             color: var(--musgo);
-        }
-
-        .btn-secondary {
-            display: inline-block;
-            text-decoration: none;
-            background: transparent;
-            color: var(--musgo);
-            font-size: 0.68rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            padding: 1rem 1.8rem;
-            text-align: center;
+            padding: 0.8rem 1.8rem;
             border: 1px solid var(--musgo);
             transition: all 0.3s;
-            cursor: pointer;
         }
 
-        .btn-secondary:hover {
+        .project-btn:hover {
             background: var(--musgo);
             color: #fff;
         }
 
-        .panel-descripcion {
-            font-size: 0.88rem;
-            color: var(--gris);
-            line-height: 1.85;
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--gris-claro);
-            grid-column: 1 / -1;
-        }
-
-        /* ── QUIÉNES SOMOS ── */
-        #quienes-somos {
-            background: var(--crema);
-        }
-
-        .qs-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-        }
-
-        .qs-text h2 { margin-bottom: 0.6rem; }
-
-        .qs-text p {
-            font-size: 0.95rem;
-            color: #444;
-            line-height: 1.9;
-            margin-bottom: 1.2rem;
-        }
-
-        .qs-quote {
-            border-left: 2px solid var(--musgo);
-            padding: 1.2rem 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .qs-quote p {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem;
-            font-style: italic;
-            color: var(--musgo);
-            line-height: 1.5;
-            margin: 0;
-        }
-
-        .qs-card {
-            background: var(--blanco);
-            padding: 2.8rem;
-            border-top: 4px solid var(--musgo);
-            box-shadow: 0 8px 40px rgba(45,76,59,0.08);
-        }
-
-        .qs-card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.9rem;
-            font-weight: 600;
-            font-style: italic;
-            color: var(--musgo);
-            margin-bottom: 1rem;
-            line-height: 1.15;
-            padding-bottom: 0.8rem;
-            border-bottom: 2px solid var(--musgo);
-            display: inline-block;
-        }
-
-        .qs-card p {
-            font-size: 0.9rem;
-            color: #555;
-            line-height: 1.85;
-            margin-bottom: 1rem;
-        }
-
-        .qs-garantias {
-            margin-top: 1.8rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--gris-claro);
-            display: flex;
-            flex-direction: column;
-            gap: 0.9rem;
-        }
-
-        .garantia {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.8rem;
-        }
-
-        .garantia-icon {
-            width: 22px;
-            height: 22px;
-            background: var(--musgo);
-            color: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.65rem;
-            flex-shrink: 0;
-            margin-top: 1px;
-        }
-
-        .garantia p {
-            font-size: 0.85rem;
-            color: #555;
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        /* ── SERVICIOS ── */
-        #servicios {
-            background: var(--blanco);
-        }
-
-        .servicios-inner { max-width: 1100px; margin: 0 auto; }
-
-        .servicios-header { text-align: center; margin-bottom: 4rem; }
-        .servicios-header .divider { margin: 1.4rem auto; }
-        .servicios-header p {
-            font-size: 0.9rem;
-            color: var(--gris);
-            max-width: 520px;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
-
-        .servicios-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            border: 1px solid var(--gris-claro);
-        }
-
-        .servicio {
-            padding: 2.8rem 2rem;
-            border-right: 1px solid var(--gris-claro);
-            transition: all 0.4s;
-            cursor: default;
-        }
-
-        .servicio:last-child { border-right: none; }
-
-        .servicio:hover {
-            background: var(--musgo);
-        }
-
-        .servicio-num {
-            font-size: 0.6rem;
-            font-weight: 700;
-            letter-spacing: 0.2em;
-            color: var(--musgo);
-            margin-bottom: 1.4rem;
-            transition: color 0.4s;
-        }
-
-        .servicio:hover .servicio-num { color: rgba(255,255,255,0.55); }
-
-        .servicio-icon {
-            width: 36px;
-            height: 36px;
-            margin-bottom: 1.2rem;
-            display: block;
-            color: var(--musgo);
-            transition: color 0.4s;
-        }
-
-        .servicio:hover .servicio-icon { color: rgba(255,255,255,0.9); }
-
-        .servicio h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
-            color: #2a2a2a;
-            margin-bottom: 0.8rem;
-            transition: color 0.4s;
-        }
-
-        .servicio:hover h4 { color: #fff; }
-
-        .servicio p {
-            font-size: 0.83rem;
-            color: var(--gris);
-            line-height: 1.75;
-            transition: color 0.4s;
-        }
-
-        .servicio:hover p { color: rgba(255,255,255,0.8); }
-
-        /* ── PDF MODAL ── */
-        .pdf-modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            z-index: 999;
-            background: rgba(20,38,28,0.75);
-            backdrop-filter: blur(6px);
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-        }
-
-        .pdf-modal.open { display: flex; }
-
-        .pdf-modal-inner {
-            background: var(--blanco);
-            width: 100%;
-            max-width: 860px;
-            max-height: 92vh;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 24px 80px rgba(0,0,0,0.35);
-        }
-
-        .pdf-modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 1.4rem;
-            border-bottom: 1px solid var(--gris-claro);
-            background: var(--crema);
-            flex-shrink: 0;
-        }
-
-        .pdf-modal-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
-            color: var(--musgo);
-            font-style: italic;
-        }
-
-        .pdf-modal-close {
-            background: none;
-            border: 1px solid var(--gris-claro);
-            width: 34px;
-            height: 34px;
-            cursor: pointer;
-            font-size: 1.1rem;
-            color: var(--musgo);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-        }
-
-        .pdf-modal-close:hover { background: var(--musgo); color: #fff; border-color: var(--musgo); }
-
-        .pdf-modal-body {
-            flex: 1;
-            overflow: hidden;
-            min-height: 0;
-        }
-
-        .pdf-modal-body iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
-        }
-
-        .pdf-modal-footer {
-            padding: 0.8rem 1.4rem;
-            border-top: 1px solid var(--gris-claro);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-shrink: 0;
-            gap: 1rem;
-        }
-
-        .pdf-modal-footer a {
-            font-size: 0.65rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--musgo);
-            text-decoration: none;
-            opacity: 0.7;
-            transition: opacity 0.2s;
-        }
-
-        .pdf-modal-footer a:hover { opacity: 1; }
-
-        .pdf-modal-note {
-            font-size: 0.72rem;
-            color: var(--gris);
-        }
-
-        /* ── FOOTER ── */
+        /* ── SECCIÓN CONTACTO (FOOTER) ── */
         footer {
-            background: var(--musgo);
-            color: #fff;
-            padding: 5rem 1.5rem 3rem;
+            background: var(--crema);
+            padding: 6rem 2rem 3rem 2rem;
+            border-top: 1px solid var(--gris-claro);
         }
 
         .footer-inner {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
             text-align: center;
         }
 
-        .footer-logo img {
-            height: 64px;
-            filter: brightness(0) invert(1);
-            opacity: 0.85;
-            margin-bottom: 2.5rem;
+        .footer-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            color: var(--musgo);
+            margin-bottom: 1.5rem;
+            font-style: italic;
         }
 
-        .footer-tagline {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            font-style: italic;
-            font-weight: 300;
-            opacity: 0.75;
-            margin-bottom: 2.5rem;
+        .footer-text {
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            line-height: 1.7;
+            color: var(--gris);
+            max-width: 550px;
+            margin: 0 auto 3rem auto;
         }
 
         .footer-cta {
             display: inline-block;
             text-decoration: none;
-            background: #fff;
-            color: var(--musgo);
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            padding: 1.1rem 2.8rem;
-            margin-bottom: 3.5rem;
-            transition: all 0.3s;
-        }
-
-        .footer-cta:hover {
-            background: var(--crema);
-        }
-
-        .footer-contact {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-            padding-top: 2.5rem;
-            border-top: 1px solid rgba(255,255,255,0.15);
-        }
-
-        .contact-item {
-            display: flex;
-            flex-direction: column;
-            gap: 0.3rem;
-        }
-
-        .contact-label {
-            font-size: 0.58rem;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            opacity: 0.5;
-        }
-
-        .contact-value {
-            font-size: 0.88rem;
-            opacity: 0.85;
-            text-decoration: none;
+            background: var(--musgo);
             color: #fff;
-            transition: opacity 0.3s;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            padding: 1.1rem 3rem;
+            transition: background 0.3s;
+            margin-bottom: 4rem;
         }
 
-        .contact-value:hover { opacity: 1; }
+        .footer-cta:hover { background: var(--musgo-light); }
 
-        .footer-copy {
-            margin-top: 2.5rem;
-            font-size: 0.68rem;
-            opacity: 0.35;
-            letter-spacing: 0.1em;
+        .footer-bottom {
+            border-top: 1px solid var(--crema-dark);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.7rem;
+            letter-spacing: 0.05em;
+            color: var(--gris);
         }
-
-        /* ── RESPONSIVE ── */
-        @media (max-width: 1200px) {
-            .nav-inner { padding: 0 1.5rem; }
-            .nav-links { gap: 1.8rem; }
-            .qs-inner { gap: 3rem; }
-            .servicios-grid { grid-template-columns: repeat(4, 1fr); }
-        }
-
-        @media (max-width: 900px) {
-            .nav-links { display: none; }
-            .hamburger { display: flex; }
-            .mobile-menu.open { display: block; }
-
-            section { padding: 5.5rem 1.5rem; }
-
-            .hero-title { font-size: clamp(2.8rem, 7vw, 5rem); }
-            .hero-eyebrow { letter-spacing: 0.25em; }
-
-            .proyectos-header { margin-bottom: 2.5rem; }
-            .proyectos-header p { font-size: 0.88rem; }
-            .proyecto-trigger { gap: 1.2rem; padding: 1.4rem 1.5rem; }
-            .panel-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-            .panel-acciones { flex-direction: row; }
-            .btn-primary, .btn-secondary { flex: 1; }
-
-            .qs-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-            .qs-card { padding: 2rem; }
-
-            .servicios-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .servicio {
-                border-right: none;
-                border-bottom: 1px solid var(--gris-claro);
-            }
-            .servicio:nth-child(odd) { border-right: 1px solid var(--gris-claro); }
-            .servicio:nth-last-child(-n+2) { border-bottom: none; }
-
-            .footer-contact { gap: 2rem; }
-        }
-
-        @media (max-width: 768px) {
-            .nav-inner { height: 68px; }
-            .nav-logo img { height: 44px; }
-
-            .hero { min-height: 100svh; }
-            .hero-title { font-size: clamp(2.4rem, 10vw, 3.8rem); line-height: 1.1; }
-            .hero-sub { letter-spacing: 0.25em; margin-bottom: 2rem; }
-            .hero-scroll { display: none; }
-
-            .proyecto-name { font-size: 1.3rem; }
-            .proyecto-loc { font-size: 0.65rem; }
-            .proyecto-arrow span:first-child { display: none; }
-            .panel-acciones { flex-direction: column; }
-            .btn-primary, .btn-secondary { flex: none; width: 100%; }
-            .panel-descripcion { font-size: 0.85rem; }
-
-            .qs-card { padding: 1.6rem; }
-            .qs-quote p { font-size: 1.2rem; }
-
-            .servicios-header p { font-size: 0.85rem; }
-            .servicio { padding: 2.5rem 1.5rem; }
-
-            .footer-tagline { font-size: 1.2rem; }
-            .footer-cta { padding: 1rem 2rem; font-size: 0.65rem; }
-            .footer-contact { flex-direction: column; align-items: center; gap: 1.5rem; }
-        }
-
-        @media (max-width: 480px) {
-            .nav-inner { padding: 0 1rem; height: 62px; }
-            .nav-logo img { height: 38px; }
-
-            section { padding: 4rem 1rem; }
-
-            .hero-title { font-size: clamp(2rem, 11vw, 3rem); }
-            .hero-eyebrow { font-size: 0.58rem; letter-spacing: 0.2em; }
-            .hero-sub { font-size: 0.62rem; letter-spacing: 0.2em; }
-            .hero-btn { padding: 0.8rem 1.8rem; font-size: 0.62rem; }
-
-            .proyectos-header { margin-bottom: 2rem; }
-            .proyectos-header p { font-size: 0.82rem; }
-            .proyecto-trigger {
-                grid-template-columns: 56px 1fr 28px;
-                gap: 0.9rem;
-                padding: 1.1rem 1rem;
-            }
-            .proyecto-thumb { width: 56px; height: 56px; }
-            .proyecto-name { font-size: 1.15rem; }
-            .proyecto-loc { font-size: 0.6rem; }
-            .arrow-icon { width: 22px; height: 22px; }
-            .proyecto-arrow span:first-child { display: none; }
-            .proyecto-panel { padding: 1.5rem 1rem; }
-            .dato-precio { font-size: 1.7rem; }
-            .panel-tags { gap: 0.4rem; }
-            .tag { font-size: 0.55rem; padding: 0.25rem 0.55rem; }
-
-            .qs-text p { font-size: 0.88rem; }
-            .qs-card { padding: 1.4rem; }
-            .qs-card h3 { font-size: 1.15rem; }
-            .qs-card p { font-size: 0.83rem; }
-            .garantia p { font-size: 0.8rem; }
-            .garantia-icon { width: 20px; height: 20px; font-size: 0.6rem; }
-
-            .servicios-grid { grid-template-columns: repeat(2, 1fr) !important; }
-            .servicio { border-right: none !important; border-bottom: 1px solid var(--gris-claro); }
-            .servicio:nth-child(odd) { border-right: 1px solid var(--gris-claro) !important; }
-            .servicio:nth-last-child(-n+2) { border-bottom: none; }
-            .servicio:last-child { border-bottom: none; }
-            .servicio { padding: 1.6rem 1rem; }
-            .servicio-icon { width: 28px; height: 28px; margin-bottom: 0.8rem; }
-            .servicios-header .section-title br { display: none; }
-
-            footer { padding: 4rem 1rem 2.5rem; }
-            .footer-logo img { height: 50px; margin-bottom: 1.5rem; }
-            .footer-tagline { font-size: 1.05rem; margin-bottom: 1.8rem; }
-            .footer-cta { display: block; width: 100%; text-align: center; margin-bottom: 2.5rem; }
-            .footer-copy { font-size: 0.6rem; }
-
-            .mobile-menu { padding: 1rem 1.5rem; }
-            .mobile-menu a { font-size: 0.7rem; padding: 0.9rem 0; }
+        @media (max-width: 600px) {
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
         }
     </style>
 </head>
@@ -1018,472 +402,131 @@
 
     <nav id="navbar">
         <div class="nav-inner">
-            <div class="nav-logo">
-                <img src="https://i.ibb.co/VY87sBfr/Logo-Las-Sierras-Inmobiliaria-3x.png" alt="Las Sierras Inmobiliaria">
-            </div>
+            <a href="#" class="nav-logo">
+                <img src="https://i.ibb.co/VY87sBfr/Logo-Las-Sierras-Inmobiliaria-3x.png" alt="Las Sierras">
+            </a>
             <ul class="nav-links">
                 <li><a href="#proyectos">Proyectos</a></li>
-                <li><a href="#quienes-somos">Quiénes Somos</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li>
-                    <a href="https://wa.me/59899488126?text=Hola!%20Me%20interesa%20obtener%20información%20sobre%20las%20chacras."
-                       target="_blank" class="nav-cta">Contacto</a>
-                </li>
+                <li><a href="#contacto" class="nav-cta">Contacto</a></li>
             </ul>
-            <button class="hamburger" id="hamburger" aria-label="Menú">
-                <span></span><span></span><span></span>
+            <button class="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
         </div>
-        <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu">
             <a href="#proyectos">Proyectos</a>
-            <a href="#quienes-somos">Quiénes Somos</a>
-            <a href="#servicios">Servicios</a>
-            <a href="https://wa.me/59899488126?text=Hola!%20Me%20interesa%20obtener%20información%20sobre%20las%20chacras."
-               target="_blank">Contacto</a>
+            <a href="#contacto">Contacto</a>
         </div>
     </nav>
 
     <section class="hero">
-        <div class="hero-bg" id="hero-bg"></div>
+        <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <p class="hero-eyebrow">Las Sierras Inmobiliaria · Uruguay</p>
-            <h1 class="hero-title">Regresar<br>a la Tierra</h1>
-            <p class="hero-sub">Vivir en sintonía es natural</p>
-            <a href="#proyectos" class="hero-btn">Ver Proyectos</a>
+            <p class="hero-eyebrow">Las Sierras | Negocios Rurales</p>
+            <h1 class="hero-title">Vivir la Tierra</h1>
+            <p class="hero-sub">Proyectos Sostenibles en el Corazón de las Sierras</p>
+            <a href="#proyectos" class="hero-btn">Descubrir Chacras</a>
         </div>
         <div class="hero-scroll">
-            <div class="scroll-line"></div>
+            <span>Scroll</span>
         </div>
     </section>
 
-    <section id="proyectos">
-        <div class="proyectos-header">
-            <p class="section-label">Nuestros Proyectos</p>
-            <h2 class="section-title">Chacras con propósito<br>en las Sierras</h2>
-            <div class="divider"></div>
-            <p>Cada proyecto nace de la observación profunda del territorio. Todos incluyen escritura pública tradicional y asesoramiento en permacultura, bioconstrucción y soberanía alimentaria.</p>
-        </div>
+    <section id="proyectos" class="container section-padding">
+        <div class="projects-grid">
+            
+            <article class="project-card">
+                <div class="project-img-wrapper">
+                    <img src="https://i.ibb.co/C3Ym8YmP/Whats-App-Image-2026-03-19-at-22-41-21.jpg" alt="Yaguané Raitý" class="project-img">
+                </div>
+                <div class="project-info">
+                    <p class="project-meta">Ruta 109 · Maldonado</p>
+                    <h3 class="project-title">Yaguané Raitý</h3>
+                    <p class="project-description">Chacras de 5 hectáreas integradas a una comunidad consciente. Un entorno de sierras altas con nacientes de agua puras y monte nativo protegido.</p>
+                    <a href="./definitivo%202.pdf" target="_blank" class="project-btn">Ver Brochure Online</a>
+                </div>
+            </article>
 
-        <div class="proyectos-grid">
+            <article class="project-card">
+                <div class="project-img-wrapper">
+                    <img src="https://i.ibb.co/G4vWpXfP/Whats-App-Image-2026-03-19-at-22-41-21-1.jpg" alt="Aigüa i Terra" class="project-img">
+                </div>
+                <div class="project-info">
+                    <p class="project-meta">Ruta 109 · Rocha</p>
+                    <h3 class="project-title">Aigüa i Terra</h3>
+                    <p class="project-description">Un proyecto enfocado en la conservación y la permacultura. Espacios diseñados respetando las dinámicas naturales y los cursos de agua del paisaje.</p>
+                    <a href="./AiguaITerra.pdf" target="_blank" class="project-btn">Ver Brochure Online</a>
+                </div>
+            </article>
 
-            <div class="proyecto-item" id="item-yaguane">
-                <button class="proyecto-trigger" onclick="toggle('item-yaguane')">
-                    <img src="https://i.ibb.co/kgnKWtXx/Whats-App-Image-2026-03-19-at-22-41-20.jpg" class="proyecto-thumb" alt="Yaguané Raitý">
-                    <div class="proyecto-info">
-                        <div class="proyecto-name">Yaguané Raitý</div>
-                        <div class="proyecto-loc">Sierras de Maldonado · USD 35.000</div>
-                    </div>
-                    <div class="proyecto-arrow">
-                        <span>Explorar</span>
-                        <span class="arrow-icon">↓</span>
-                    </div>
-                </button>
-                <div class="proyecto-panel">
-                    <div class="panel-grid">
-                        <div class="panel-datos">
-                            <div class="dato-row">
-                                <span class="dato-label">Precio</span>
-                                <span class="dato-precio">USD 35.000</span>
-                            </div>
-                            <div class="dato-row">
-                                <span class="dato-label">Unidades</span>
-                                <span class="dato-value">11 chacras de 3 hectáreas</span>
-                            </div>
-                            <div class="dato-row">
-                                <span class="dato-label">Ubicación</span>
-                                <span class="dato-value">Camino vecinal a 250m de Ruta 109. A 20 km de Rocha y 45 km de La Paloma.</span>
-                            </div>
-                            <div class="panel-tags">
-                                <span class="tag">Permacultura</span>
-                                <span class="tag">Monte nativo</span>
-                                <span class="tag">Sin alambrados</span>
-                                <span class="tag">Escritura pública</span>
-                            </div>
-                        </div>
-                        <div class="panel-acciones">
-                            <a href="https://wa.me/59899488126?text=Me%20interesa%20Yaguané%20Raitý" target="_blank" class="btn-primary">Consultar por WhatsApp</a>
-                            <button onclick="abrirPDF('definitivo 2.pdf','Yaguané Raitý')" class="btn-secondary">Ver Brochure</button>
-                        </div>
-                        <p class="panel-descripcion">
-                            El Yaguané nos dio la bienvenida al campo mostrando autoconfianza y límites firmes, inspirando el nombre de este proyecto. Suelo profundo, fértil y rico en materia orgánica. Diversidad de relieves con cortinas naturales de viento que crean microclimas. Monte nativo centenario intacto y formaciones de piedra únicas, posiblemente antiguas guacas, que aportan identidad a este territorio. Las chacras se mantienen libres de alambrados internos para respetar los corredores biológicos de la fauna nativa.
-                        </p>
-                    </div>
+            <article class="project-card">
+                <div class="project-img-wrapper">
+                    <img src="https://i.ibb.co/Txcf9TKy/Whats-App-Image-2026-03-19-at-22-41-22.jpg" alt="Ñangarekó" class="project-img">
                 </div>
-            </div>
+                <div class="project-info">
+                    <p class="project-meta">Sierras · Rocha</p>
+                    <h3 class="project-title">Ñangarekó</h3>
+                    <p class="project-description">Tierra de conservación y regeneración. Criterios rigurosos de bioconstrucción y soberanía alimentaria para un asentamiento armónico.</p>
+                    <a href="./%C3%91ANGAREK%C3%93.pdf" target="_blank" class="project-btn">Ver Brochure Online</a>
+                </div>
+            </article>
 
-            <div class="proyecto-item" id="item-aigua">
-                <button class="proyecto-trigger" onclick="toggle('item-aigua')">
-                    <img src="https://i.ibb.co/p6ywz7Mj/Foto-1.png" class="proyecto-thumb" alt="Aigua I Terra">
-                    <div class="proyecto-info">
-                        <div class="proyecto-name">Aigua I Terra</div>
-                        <div class="proyecto-loc">Sierras de Maldonado · USD 30.000</div>
-                    </div>
-                    <div class="proyecto-arrow">
-                        <span>Explorar</span>
-                        <span class="arrow-icon">↓</span>
-                    </div>
-                </button>
-                <div class="proyecto-panel">
-                    <div class="panel-grid">
-                        <div class="panel-datos">
-                            <div class="dato-row">
-                                <span class="dato-label">Precio</span>
-                                <span class="dato-precio">USD 30.000</span>
-                            </div>
-                            <div class="dato-row">
-                                <span class="dato-label">Unidades</span>
-                                <span class="dato-value">13 chacras de 3 hectáreas</span>
-                            </div>
-                            <div class="dato-row">
-                                <span class="dato-label">Ubicación</span>
-                                <span class="dato-value">Ruta Natural 109. A 25 km de la ciudad de Rocha y 35 km de Aiguá.</span>
-                            </div>
-                            <div class="panel-tags">
-                                <span class="tag">Agua permanente</span>
-                                <span class="tag">Biodiversidad</span>
-                                <span class="tag">Permacultura</span>
-                                <span class="tag">Conservación</span>
-                            </div>
-                        </div>
-                        <div class="panel-acciones">
-                            <a href="https://wa.me/59899488126?text=Me%20interesa%20Aigua%20I%20Terra" target="_blank" class="btn-primary">Consultar por WhatsApp</a>
-                            <button onclick="abrirPDF('AiguaITerra.pdf','Aigua I Terra')" class="btn-secondary">Ver Brochure</button>
-                        </div>
-                        <p class="panel-descripcion">
-                            Su nombre proviene del catalán — "Agua y Tierra" — que representa lo que inspiró el campo al conocerlo. Todas las chacras cuentan con agua de arroyo permanente, ya que aquí se encuentra una de las nacientes del Arroyo Rocha. Hábitat natural de especies nativas de flora y fauna en las quebradas de las Sierras. Acceso por camino central en parte alta del campo, reduciendo la erosión. Cortinas vegetales de árboles centenarios protegen los espacios de habitación. El proyecto es una oportunidad de conservación y regeneración junto a 12 vecinos que comparten los mismos valores y se mantienen sin alambrados internos.
-                        </p>
-                    </div>
+            <article class="project-card">
+                <div class="project-img-wrapper">
+                    <img src="https://i.ibb.co/tPpVvFq9/Whats-App-Image-2026-03-19-at-22-41-22-1.jpg" alt="Taguató Kuá" class="project-img">
                 </div>
-            </div>
+                <div class="project-info">
+                    <p class="project-meta">Ruta 109 · Cerca del Mar</p>
+                    <h3 class="project-title">Taguató Kuá</h3>
+                    <p class="project-description">La combinación perfecta entre la quietud absoluta de las sierras y la cercanía al océano Atlántico. Independencia y comunidad en equilibrio.</p>
+                    <a href="./Taguat%C3%B3%20Ku%C3%A1.pdf" target="_blank" class="project-btn">Ver Brochure Online</a>
+                </div>
+            </article>
 
-            <div class="proyecto-item" id="item-nangareko">
-                <button class="proyecto-trigger" onclick="toggle('item-nangareko')">
-                    <img src="https://i.ibb.co/TDnFBJgq/Foto-2.png" class="proyecto-thumb" alt="Ñangarekó">
-                    <div class="proyecto-info">
-                        <div class="proyecto-name">Ñangarekó</div>
-                        <div class="proyecto-loc">Sierras de Rocha · USD 45.000</div>
-                    </div>
-                    <div class="proyecto-arrow">
-                        <span>Explorar</span>
-                        <span class="arrow-icon">↓</span>
-                    </div>
-                </button>
-                <div class="proyecto-panel">
-                    <div class="panel-grid">
-                        <div class="panel-datos">
-                            <div class="dato-row">
-                                <span class="dato-label">Precio</span>
-                                <span class="dato-precio">USD 45.000</span>
-                            </div>
-                            <div class="dato-row">
-                                <span class="dato-label">Unidades</span>
-                                <span class="dato-value">10 chacras de 5 ha individuales + 50 ha de uso común</span>
-                            </div>
-                            <div class="dato-row">
-                                <span class="dato-label">Ubicación</span>
-                                <span class="dato-value">Ubicado en las Sierras de Rocha, a 15 km de la ciudad de Rocha.</span>
-                            </div>
-                            <div class="panel-tags">
-                                <span class="tag">50 ha comunes</span>
-                                <span class="tag">Monte nativo</span>
-                                <span class="tag">Sierras de Rocha</span>
-                                <span class="tag">Permacultura</span>
-                            </div>
-                        </div>
-                        <div class="panel-acciones">
-                            <a href="https://wa.me/59899488126?text=Me%20interesa%20Ñangarekó" target="_blank" class="btn-primary">Consultar por WhatsApp</a>
-                            <button onclick="abrirPDF('ÑANGAREKÓ.pdf','Ñangarekó')" class="btn-secondary">Ver Brochure</button>
-                        </div>
-                        <p class="panel-descripcion">
-                            Tierra de mucha energía en las Sierras de Rocha, inspirada en los principios de los pueblos originarios. Los pilares son la conservación y la permacultura: se respeta la riqueza del monte nativo y se aprovechan los eucaliptos implantados para uso como cortina de viento, leña y bioconstrucción. Vistas inigualables desde 200 metros de altura. En cada chacra se planifica el manejo del suelo individualmente, combinando privacidad con acceso a 50 hectáreas compartidas.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="proyecto-item" id="item-taguato">
-                <button class="proyecto-trigger" onclick="toggle('item-taguato')">
-                    <img src="https://i.ibb.co/TDr5LWsx/foto-7.png" class="proyecto-thumb" alt="Taguató Kuá">
-                    <div class="proyecto-info">
-                        <div class="proyecto-name">Taguató Kuá</div>
-                        <div class="proyecto-loc">Sierras de Rocha · USD 39.000</div>
-                    </div>
-                    <div class="proyecto-arrow">
-                        <span>Explorar</span>
-                        <span class="arrow-icon">↓</span>
-                    </div>
-                </button>
-                <div class="proyecto-panel">
-                    <div class="panel-grid">
-                        <div class="panel-datos">
-                            <div class="dato-row">
-                                <span class="dato-label">Precio</span>
-                                <span class="dato-precio">USD 39.000</span>
-                            </div>
-                            <div class="dato-row">
-                                <span class="dato-label">Unidades</span>
-                                <span class="dato-value">8 chacras de 5 ha individuales + 40 ha compartidas</span>
-                            </div>
-                            <div class="dato-row">
-                                <span class="dato-label">Ubicación</span>
-                                <span class="dato-value">Ubicado sobre la Ruta Natural 109, en el corazón de las Sierras de Rocha. Muy cerca de la ciudad de Rocha y del Océano Atlántico.</span>
-                            </div>
-                            <div class="panel-tags">
-                                <span class="tag">40 ha comunes</span>
-                                <span class="tag">Arroyo propio</span>
-                                <span class="tag">Ruta 109</span>
-                                <span class="tag">Entrada individual</span>
-                            </div>
-                        </div>
-                        <div class="panel-acciones">
-                            <a href="https://wa.me/59899488126?text=Me%20interesa%20Taguató%20Kuá" target="_blank" class="btn-primary">Consultar por WhatsApp</a>
-                            <button onclick="abrirPDF('Taguató Kuá.pdf','Taguató Kuá')" class="btn-secondary">Ver Brochure</button>
-                        </div>
-                        <p class="panel-descripcion">
-                            En el corazón de las Sierras de Rocha, sobre la Ruta Natural 109. Una tierra para llegar, quedarse y echar raíces. Algunas chacras protegidas por monte nativo que brinda abrigo en invierno y sombra en verano. Otras en zonas altas con vistas inigualables. Especies autóctonas como guazubirás, zorros, yaguatiricas y jotes conviven en el territorio. Cada vecino accede individualmente a su chacra manteniendo la independencia, mientras comparte 40 hectáreas en libertad.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="proyecto-item" id="item-urubu">
-                <button class="proyecto-trigger" onclick="toggle('item-urubu')">
-                    <img src="https://i.ibb.co/20vJh1xr/Foto-6.png" class="proyecto-thumb" alt="Urubú Kuá">
-                    <div class="proyecto-info">
-                        <div class="proyecto-name">Urubú Kuá</div>
-                        <div class="proyecto-loc">Cerro Largo · USD 55.000</div>
-                    </div>
-                    <div class="proyecto-arrow">
-                        <span>Explorar</span>
-                        <span class="arrow-icon">↓</span>
-                    </div>
-                </button>
-                <div class="proyecto-panel">
-                    <div class="panel-grid">
-                        <div class="panel-datos">
-                            <div class="dato-row">
-                                <span class="dato-label">Precio</span>
-                                <span class="dato-precio">USD 55.000</span>
-                            </div>
-                            <div class="dato-row">
-                                <span class="dato-label">Unidades</span>
-                                <span class="dato-value">Chacras de 5 hectáreas</span>
-                            </div>
-                            <div class="dato-row">
-                                <span class="dato-label">Ubicación</span>
-                                <span class="dato-value">Ubicado en Cerro Largo, en una zona de tierra alta muy próxima a la ciudad de Melo (a solo 10 minutos).</span>
-                            </div>
-                            <div class="panel-tags">
-                                <span class="tag">Tierra alta</span>
-                                <span class="tag">Melo</span>
-                                <span class="tag">Orientación Norte</span>
-                                <span class="tag">Cultivos mediterráneos</span>
-                            </div>
-                        </div>
-                        <div class="panel-acciones">
-                            <a href="https://wa.me/59899488126?text=Me%20interesa%20Urubú%20Kuá" target="_blank" class="btn-primary">Consultar por WhatsApp</a>
-                            <button onclick="abrirPDF('Urubú Kuá.pdf','Urubú Kuá')" class="btn-secondary">Ver Brochure</button>
-                        </div>
-                        <p class="panel-descripcion">
-                            Tierra alta y hermosa cerca de Melo, con la independencia necesaria para vivir en paz y contacto directo con la naturaleza. Los vientos y la orientación norte favorecen cultivos de origen mediterráneo, creando condiciones ideales para la producción ecológica y sustentable. El campo presenta relieves naturales que permiten la acumulación de agua. Los vecinos viven todo el año, creando un ambiente seguro y acompañado sin perder la calma y amplitud del paisaje rural.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="quienes-somos">
-        <div class="qs-inner">
-            <div class="qs-text">
-                <p class="section-label">Quiénes Somos</p>
-                <h2 class="section-title">Nuestra esencia<br>y propósito</h2>
-                <div class="divider"></div>
-                <p>Somos un equipo apasionado por el territorio, dedicado a la venta de campos y propiedades con un enfoque genuino en la sostenibilidad. Nuestra propuesta nace de la <strong>observación profunda del paisaje</strong>: entendemos que el agua, el viento y el suelo dictan el equilibrio necesario para habitarlo.</p>
-                <p>Acompañamos a quienes buscan una vida más simple y antigua, integrando los principios de la <strong>permacultura</strong> para aprovechar los recursos naturales de forma inteligente y respetuosa con el entorno.</p>
-                <p>En alianza con <strong>Cuoretierra</strong> — especialistas en permacultura y bioconstrucción — diseñamos los criterios de sustentabilidad de cada proyecto.</p>
-                <div class="qs-quote">
-                    <p>"Llegar al territorio para conocerlo, entenderlo y asentarnos en libertad."</p>
-                </div>
-            </div>
-            <div class="qs-card">
-                <h3>¿Por qué confiar en nosotros?</h3>
-                <p>Con trayectoria consolidada en la venta de campos en las Sierras de Rocha y Maldonado, garantizamos una gestión transparente y segura.</p>
-                <div class="qs-garantias">
-                    <div class="garantia">
-                        <div class="garantia-icon">✓</div>
-                        <p><strong>Escritura Pública Tradicional</strong> — seguridad jurídica total en cada adquisición, realizada ante escribano público.</p>
-                    </div>
-                    <div class="garantia">
-                        <div class="garantia-icon">✓</div>
-                        <p><strong>Asesoramiento técnico incluido</strong> — permacultura, bioconstrucción y soberanía alimentaria desde el primer día.</p>
-                    </div>
-                    <div class="garantia">
-                        <div class="garantia-icon">✓</div>
-                        <p><strong>Comunidad de vecinos</strong> — te integrás a personas que comparten el mismo respeto por los ecosistemas de las sierras.</p>
-                    </div>
-                    <div class="garantia">
-                        <div class="garantia-icon">✓</div>
-                        <p><strong>Sin alambrados internos</strong> — respetamos los corredores biológicos de la fauna nativa en todos nuestros proyectos.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="servicios">
-        <div class="servicios-inner">
-            <div class="servicios-header">
-                <p class="section-label">Asesoría y Acompañamiento</p>
-                <h2 class="section-title">Criterios de sustentabilidad<br>en cada paso</h2>
-                <div class="divider"></div>
-                <p>Cada proyecto incluye consultoría especializada para que tu vida en las sierras comience con el pie derecho.</p>
-            </div>
-            <div class="servicios-grid">
-                <div class="servicio">
-                    <div class="servicio-num">01</div>
-                    <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10"/><path d="M12 6v6l4 2"/><circle cx="18" cy="6" r="3"/><path d="M16.5 4.5l3 3"/>
-                        <path d="M7 20c0-4 2-7 5-9"/><path d="M12 11c0-4 3-7 7-7-1 4-4 7-7 7z"/>
-                    </svg>
-                    <h4>Soberanía Alimentaria</h4>
-                    <p>Diseño de huerta orgánica, manejo del suelo serrano y consultoría en sistema de compostaje familiar.</p>
-                </div>
-                <div class="servicio">
-                    <div class="servicio-num">02</div>
-                    <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
-                    </svg>
-                    <h4>Bioconstrucción</h4>
-                    <p>Sistemas constructivos de bajo impacto, materiales locales y eficiencia térmica para mayor independencia.</p>
-                </div>
-                <div class="servicio">
-                    <div class="servicio-num">03</div>
-                    <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
-                    </svg>
-                    <h4>Gestión del Agua</h4>
-                    <p>Tratamiento ecológico de aguas residuales, reutilización de aguas grises y sistemas de riego eficiente.</p>
-                </div>
-                <div class="servicio">
-                    <div class="servicio-num">04</div>
-                    <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-                    </svg>
-                    <h4>Energías Renovables</h4>
-                    <p>Autonomía energética en armonía con el entorno, optimizando los recursos naturales del territorio.</p>
-                </div>
-            </div>
         </div>
     </section>
 
     <footer id="contacto">
         <div class="footer-inner">
-            <div class="footer-logo">
-                <img src="https://i.ibb.co/VY87sBfr/Logo-Las-Sierras-Inmobiliaria-3x.png" alt="Las Sierras Inmobiliaria">
+            <h2 class="footer-title">¿Comenzamos el viaje?</h2>
+            <p class="footer-text">Si sentís el llamado de cambiar tu forma de habitar el territorio y querés conocer más sobre las chacras disponibles, escribinos.</p>
+            <a href="https://wa.me/59896101931" target="_blank" class="footer-cta">Escribinos por WhatsApp</a>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Las Sierras Inmobiliaria. Todos los derechos reservados.</p>
+                <p>Sierras de Rocha y Maldonado, Uruguay.</p>
             </div>
-            <p class="footer-tagline">Propiedades con propósito en las Sierras</p>
-            <a href="https://wa.me/59899488126?text=Hola!%20Me%20interesa%20obtener%20información%20sobre%20las%20chacras."
-               target="_blank" class="footer-cta">Hablar con un asesor →</a>
-            <div class="footer-contact">
-                <div class="contact-item">
-                    <span class="contact-label">WhatsApp</span>
-                    <a href="https://wa.me/59899488126" class="contact-value">(+598) 99 488 126</a>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-label">Instagram</span>
-                    <a href="https://www.instagram.com/lassierrasinmobiliaria/" target="_blank" class="contact-value">@lassierrasinmobiliaria</a>
-                </div>
-                <div class="contact-item">
-                    <span class="contact-label">Asesora</span>
-                    <a href="https://www.instagram.com/cuoretierra/" target="_blank">
-                        <img src="https://i.ibb.co/prGhgrKf/Logo-Blanco.png" alt="Cuoretierra" style="height:32px; opacity:0.85; transition:opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.85">
-                    </a>
-                </div>
-            </div>
-            <p class="footer-copy">© 2026 Las Sierras Inmobiliaria · Uruguay · Sierras de Rocha</p>
         </div>
     </footer>
 
-    <div class="pdf-modal" id="pdf-modal">
-        <div class="pdf-modal-inner">
-            <div class="pdf-modal-header">
-                <span class="pdf-modal-title" id="pdf-modal-title">Brochure</span>
-                <button class="pdf-modal-close" onclick="cerrarPDF()" aria-label="Cerrar">✕</button>
-            </div>
-            <div class="pdf-modal-body">
-                <iframe id="pdf-iframe" src="" title="Brochure PDF"></iframe>
-            </div>
-            <div class="pdf-modal-footer">
-                <span class="pdf-modal-note">Podés navegar el documento con las flechas del visor.</span>
-                <a id="pdf-link" href="" target="_blank">Abrir en pantalla completa</a>
-            </div>
-        </div>
-    </div>
-
     <script>
-        // PDF Modal
-        function abrirPDF(archivo, nombre) {
-            document.getElementById('pdf-modal-title').textContent = nombre;
-            document.getElementById('pdf-iframe').src = archivo;
-            document.getElementById('pdf-link').href = archivo;
-            document.getElementById('pdf-modal').classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
+        // Menu Mobile Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.querySelector('.mobile-menu');
 
-        function cerrarPDF() {
-            document.getElementById('pdf-modal').classList.remove('open');
-            document.getElementById('pdf-iframe').src = '';
-            document.body.style.overflow = '';
-        }
-
-        document.getElementById('pdf-modal').addEventListener('click', function(e) {
-            if (e.target === this) cerrarPDF();
+        hamburger.addEventListener('click', () => {
+            mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
         });
 
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarPDF(); });
-
-        // Toggle proyectos
-        function toggle(id) {
-            const all = document.querySelectorAll('.proyecto-item');
-            all.forEach(item => {
-                if (item.id === id) {
-                    item.classList.toggle('open');
-                    if (item.classList.contains('open')) {
-                        setTimeout(() => item.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
-                    }
-                } else {
-                    item.classList.remove('open');
-                }
-            });
-        }
-
-        // Hamburger
-        const ham = document.getElementById('hamburger');
-        const mob = document.getElementById('mobile-menu');
-
-        ham.addEventListener('click', () => {
-            mob.classList.toggle('open');
-            ham.classList.toggle('active');
-        });
-
-        mob.querySelectorAll('a').forEach(a => {
-            a.addEventListener('click', () => {
-                mob.classList.remove('open');
-                ham.classList.remove('active');
-            });
-        });
-
-        // Parallax hero suave
-        const heroBg = document.getElementById('hero-bg');
+        // Efecto parallax simple en Hero al hacer scroll
         window.addEventListener('scroll', () => {
-            const y = window.scrollY;
-            if (heroBg && y < window.innerHeight) {
-                heroBg.style.transform = `scale(1.04) translateY(${y * 0.18}px)`;
+            const scroll = window.pageYOffset;
+            const heroBg = document.querySelector('.hero-bg');
+            if (heroBg) {
+                heroBg.style.transform = `scale(1.04) translateY(${scroll * 0.4}px)`;
             }
-        }, { passive: true });
+            
+            // Estilo nav al hacer scroll
+            const nav = document.getElementById('navbar');
+            if (scroll > 50) {
+                nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.03)';
+            } else {
+                nav.style.boxShadow = 'none';
+            }
+        });
     </script>
 </body>
 </html>
